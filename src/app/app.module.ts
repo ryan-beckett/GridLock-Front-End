@@ -11,6 +11,8 @@ import {AdvanacedAssetSearchComponent} from './advanaced-asset-search/advanaced-
 import {FormsModule} from "@angular/forms";
 import {AssetService} from "./asset/asset.service";
 import {RouterModule, Routes} from "@angular/router";
+import {ContactComponent} from './contact/contact.component';
+import {LocationComponent} from './location/location.component';
 
 const appRoutes: Routes = [
   {
@@ -30,7 +32,9 @@ const appRoutes: Routes = [
     ServerDeviceComponent,
     AssetTableComponent,
     AssetSearchComponent,
-    AdvanacedAssetSearchComponent
+    AdvanacedAssetSearchComponent,
+    ContactComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
