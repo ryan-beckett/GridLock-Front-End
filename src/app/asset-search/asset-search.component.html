@@ -1,15 +1,88 @@
-<div class="tab-pane fade show active" id="search-form" role="tabpanel" aria-labelledby="search-tab">
-  <form id="assetSearchForm">
+<div>
+  <form>
     <div class="form-group row">
       <div class="col-sm-1">
         <label class="col-sm-1 col-form-label">Name: </label>
       </div>
-      <div class="col-4">
-        <input [(ngModel)]="searchName" type="text" class="form-control" id="searchName" name="searchName"
-               placeholder="Search Text" required>
+      <div class="col-3">
+        <input [(ngModel)]="name" (keyup.enter)="search()" type="text" class="form-control" id="name"
+               name="name" placeholder="Asset Name">
       </div>
       <div class="col-1">
         <button type="button" class="btn btn-dark" (click)="search()">Search</button>
+      </div>
+    </div>
+    <div class="form-group row col-2">
+      <a href data-toggle="collapse" data-target="#advanced" (click)="toggleAdvancedSearch()">Advanced Search</a>
+    </div>
+    <div id="advanced" class="collapse">
+      <div class="form-group row">
+        <div class="col-2">
+          <label class="col-sm-1 col-form-label">Id</label>
+          <input [(ngModel)]="id" type="text" class="form-control" id="id" name="id" placeholder="Asset Id">
+        </div>
+        <div class="col-2">
+          <label class="col-sm-1 col-form-label">Serial</label>
+          <input [(ngModel)]="serial" type="text" class="form-control" id="serial" name="serial"
+                 placeholder="Asset Serial">
+        </div>
+        <div class="col-2">
+          <label class="col-sm-1 col-form-label">Model</label>
+          <input [(ngModel)]="model" type="text" class="form-control" id="model" name="model" placeholder="Asset Model">
+        </div>
+        <div class="col-2">
+          <label class="col-sm-1 col-form-label">Part&nbsp;#</label>
+          <input [(ngModel)]="partNumber" type="text" class="form-control" id="partNumber" name="partNumber"
+                 placeholder="Asset Part Number">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="col-sm-1 col-form-label">Type</label>
+          <select class="col-3" [(ngModel)]="type" class="form-control" id="type" name="type">
+            <option *ngFor="let t of types" [ngValue]="t">{{t}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="col-sm-1 col-form-label">Status</label>
+          <select class="col-3" [(ngModel)]="status" class="form-control" id="status" name="status">
+            <option *ngFor="let s of statuses" [ngValue]="s">{{s}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="col-sm-1 col-form-label">Manufacturer</label>
+          <select class="col-3" [(ngModel)]="manufacturer" class="form-control" id="manufacturer" name="manufacturer">
+            <option *ngFor="let m of manufacturers" [ngValue]="m">{{m.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="col-sm-1 col-form-label">Location</label>
+          <select class="col-3" [(ngModel)]="location" class="form-control" id="location" name="location">
+            <option *ngFor="let l of locations" [ngValue]="l">{{l.name}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="col-sm-1 col-form-label">Room</label>
+          <select class="col-3" [(ngModel)]="room" class="form-control" id="room" name="room">
+            <option *ngFor="let r of rooms" [ngValue]="r">{{r.name}}</option>
+          </select>
+        </div>
+        <div class="col-3">
+          <label class="col-sm-1 col-form-label">Owner</label>
+          <select class="col-3" [(ngModel)]="owner" class="form-control" id="owner" name="owner">
+            <option *ngFor="let o of owners" [ngValue]="o">{{o.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3">
+          <label class="col-sm-1 col-form-label">Description</label>
+          <textarea [(ngModel)]="description" type="text" class="form-control" id="description" name="description"
+                    placeholder="Asset Description">
+          </textarea>
+        </div>
       </div>
     </div>
   </form>

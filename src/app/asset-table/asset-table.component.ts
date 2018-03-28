@@ -17,6 +17,7 @@ export class AssetTableComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private assetService: AssetService) {
+    //can i put this in ngOnInit?
     route.params.subscribe(params => {
       this.searchField = params["field"];
       this.searchValue = params["value"];

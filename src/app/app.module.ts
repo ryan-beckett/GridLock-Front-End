@@ -4,19 +4,29 @@ import {AlertModule} from 'ngx-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {AssetComponent} from './asset/asset.component';
-import {ServerDeviceComponent} from './server-device/server-device.component';
 import {AssetTableComponent} from './asset-table/asset-table.component';
 import {AssetSearchComponent} from './asset-search/asset-search.component';
-import {AdvanacedAssetSearchComponent} from './advanaced-asset-search/advanaced-asset-search.component';
 import {FormsModule} from "@angular/forms";
 import {AssetService} from "./asset/asset.service";
 import {RouterModule, Routes} from "@angular/router";
-import {ContactComponent} from './contact/contact.component';
-import {LocationComponent} from './location/location.component';
+import {ManufacturerComponent} from './manufacturer/manufacturer.component';
+import {RoomComponent} from './room/room.component';
+import {BusinessUnitComponent} from './business-unit/business-unit.component';
+import {BusinessComponent} from './business/business.component';
+import {BusinessUnitService} from "./business-unit/business-unit.service";
+import {BusinessService} from "./business/business.service";
+import {LocationService} from "./location/location.service";
+import {ContactService} from "./contact/contact.service";
+import {RoomService} from "./room/room.service";
+import {ManufacturerService} from "./manufacturer/manufacturer.service";
 
 const appRoutes: Routes = [
   {
     path: 'asset-table/:field/:value',
+    component: AssetTableComponent
+  },
+  {
+    path: 'asset-table/advanced/:asset',
     component: AssetTableComponent
   },
   {
@@ -29,12 +39,12 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AssetComponent,
-    ServerDeviceComponent,
     AssetTableComponent,
     AssetSearchComponent,
-    AdvanacedAssetSearchComponent,
-    ContactComponent,
-    LocationComponent
+    ManufacturerComponent,
+    RoomComponent,
+    BusinessUnitComponent,
+    BusinessComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +53,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AlertModule.forRoot()
   ],
-  providers: [HttpClientModule, AssetService],
+  providers: [HttpClientModule, AssetService, BusinessService,
+    BusinessUnitService, ContactService, LocationService,
+    ManufacturerService, RoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
