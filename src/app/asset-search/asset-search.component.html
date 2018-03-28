@@ -1,6 +1,6 @@
 <div>
   <form>
-    <div class="form-group row">
+    <div id="basic" class="form-group row">
       <div class="col-sm-1">
         <label class="col-sm-1 col-form-label">Name: </label>
       </div>
@@ -9,7 +9,7 @@
                name="name" placeholder="Asset Name">
       </div>
       <div class="col-1">
-        <button type="button" class="btn btn-dark" (click)="search()">Search</button>
+        <button type="button" class="btn btn-dark" (click)="search()" id="searchBtn">Search</button>
       </div>
     </div>
     <div class="form-group row col-2">
@@ -20,6 +20,11 @@
         <div class="col-2">
           <label class="col-sm-1 col-form-label">Id</label>
           <input [(ngModel)]="id" type="text" class="form-control" id="id" name="id" placeholder="Asset Id">
+        </div>
+        <div class="col-2">
+          <label class="col-sm-1 col-form-label">Name</label>
+          <input [(ngModel)]="name" type="text" class="form-control" id="name-advanced" name="name-advanced"
+                 placeholder="Asset Name">
         </div>
         <div class="col-2">
           <label class="col-sm-1 col-form-label">Serial</label>
@@ -82,6 +87,11 @@
           <textarea [(ngModel)]="description" type="text" class="form-control" id="description" name="description"
                     placeholder="Asset Description">
           </textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-1">
+          <button type="button" class="btn btn-dark" (click)="search()">Search</button>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ declare var $: any;
 export class AssetSearchComponent implements OnInit {
 
   advancedSearchEnabled: boolean;
+  searchParams = {};
   name: string;
   id: string;
   serial: string;
@@ -72,15 +73,24 @@ export class AssetSearchComponent implements OnInit {
       if (this.name == "")
         alert("Please enter some search text.");
       else {
-        this.router.navigate(['/asset-table', "name", this.name]);
+        this.router.navigate(['asset-table', "name", this.name]);
       }
     } else {
-      let asset = {};
-      this.router.navigate(['/asset-table/advanced', asset]);
+      //TODO: Use 'advanced' route for basic search too.
+      //TODO: gather search params into a object, and making api call based on it
+      //TODO: Create JPA queries suitable for param string.
+      let asset = {id: 2};
+      this.router.navigate(['asset-table/advanced', asset]);
     }
   }
 
   toggleAdvancedSearch(): void {
     this.advancedSearchEnabled = !this.advancedSearchEnabled;
+    if (this.advancedSearchEnabled) {
+      this.name = "";
+      $("#basic").addClass("collapse");
+    } else {
+      $("#basic").removeClass("collapse");
+    }
   }
 }

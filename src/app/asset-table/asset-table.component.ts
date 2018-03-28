@@ -17,23 +17,22 @@ export class AssetTableComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private assetService: AssetService) {
-    //can i put this in ngOnInit?
-    route.params.subscribe(params => {
-      this.searchField = params["field"];
-      this.searchValue = params["value"];
-      switch (this.searchField) {
-        case "name":
-          this.assetService.getAssetsByName(this.searchValue).subscribe(data => {
-            this.assets = data;
-          });
-          break;
-        default:
-          break;
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      if (params["field"]) {
+        this.searchValue = params["value"];
+        this.assetService.getAssetsByName(this.searchValue).subscribe(data => {
+          this.assets = data;
+        });
+      } else {
+        //TODO: start here!
+        this.assetService.getAssetById(params["id"]).subscribe(data => {
+          this.assets = [data];
+        });
       }
     });
   }
 
-  ngOnInit() {
-
-  }
 }

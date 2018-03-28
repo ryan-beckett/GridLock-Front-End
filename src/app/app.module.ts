@@ -26,7 +26,7 @@ const appRoutes: Routes = [
     component: AssetTableComponent
   },
   {
-    path: 'asset-table/advanced/:asset',
+    path: 'asset-table/advanced',
     component: AssetTableComponent
   },
   {
