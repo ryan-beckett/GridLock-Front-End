@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
+declare var $: any;
+
 @Injectable()
 export class AssetService {
 
@@ -18,7 +20,11 @@ export class AssetService {
     return this.http.get(this.ASSET_API + "name/" + name);
   }
 
-  getAssetById(id: string) {
+  getAssetById(id: string): Observable<any> {
     return this.http.get(this.ASSET_API + "id/" + id);
+  }
+
+  getAssetByQueryParams(params: {}): Observable<any> {
+    return this.http.get(this.ASSET_API + "query/?" + $.param(params));
   }
 }

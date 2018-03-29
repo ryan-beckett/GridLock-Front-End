@@ -19,7 +19,6 @@ declare var $: any;
 export class AssetSearchComponent implements OnInit {
 
   advancedSearchEnabled: boolean;
-  searchParams = {};
   name: string;
   id: string;
   serial: string;
@@ -27,16 +26,16 @@ export class AssetSearchComponent implements OnInit {
   types: string[];
   status: string;
   statuses: string[];
-  manufacturer: Manufacturer;
+  manufacturer: string;
   manufacturers: Manufacturer[];
   model: string;
   partNumber: string;
   description: string;
-  location: Location;
+  location: string;
   locations: Location[];
-  room: Room;
+  room: string;
   rooms: Room[];
-  owner: BusinessUnit;
+  owner: string;
   owners: BusinessUnit[];
 
   constructor(private router: Router,
@@ -48,6 +47,18 @@ export class AssetSearchComponent implements OnInit {
 
   ngOnInit() {
     this.advancedSearchEnabled = false;
+    this.id = "";
+    this.name = "";
+    this.serial = "";
+    this.type = "";
+    this.status = "";
+    this.manufacturer = "";
+    this.model = "";
+    this.partNumber = "";
+    this.description = "";
+    this.location = "";
+    this.room = "";
+    this.owner = "";
     this.types = ["RACK", "MAIN_FRAME", "STORAGE_FRAME", "STORAGE_DEVICE", "SERVER_DEVICE", "NETWORK_DEVICE", "DESKTOP_DEVICE"];
     this.statuses = ["NEW", "INSTALLED", "PRE_PRODUCTION", "PRODUCTION", "POST_PRODUCTION", "DECOMMISSIONED"];
     this.manufacturerService.getManufacturers()
@@ -69,18 +80,16 @@ export class AssetSearchComponent implements OnInit {
   }
 
   search(): void {
-    if (!this.advancedSearchEnabled) {
-      if (this.name == "")
-        alert("Please enter some search text.");
-      else {
-        this.router.navigate(['asset-table', "name", this.name]);
-      }
-    } else {
-      //TODO: Use 'advanced' route for basic search too.
-      //TODO: gather search params into a object, and making api call based on it
-      //TODO: Create JPA queries suitable for param string.
-      let asset = {id: 2};
-      this.router.navigate(['asset-table/advanced', asset]);
+    if (!this.advancedSearchEnabled && this.name == "")
+      alert("Please enter some search text.");
+    else {
+      let params = {
+        id: this.id, name: this.name, serial: this.serial,
+        type: this.type, status: this.status, manufacturer: this.manufacturer,
+        model: this.model, partNumber: this.partNumber, description: this.description,
+        location: this.location, room: this.room, owner: this.owner
+      };
+      this.router.navigate(['asset-table/search'], {queryParams: params});
     }
   }
 

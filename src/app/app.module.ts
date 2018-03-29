@@ -22,11 +22,7 @@ import {ManufacturerService} from "./manufacturer/manufacturer.service";
 
 const appRoutes: Routes = [
   {
-    path: 'asset-table/:field/:value',
-    component: AssetTableComponent
-  },
-  {
-    path: 'asset-table/advanced',
+    path: 'asset-table/search',
     component: AssetTableComponent
   },
   {

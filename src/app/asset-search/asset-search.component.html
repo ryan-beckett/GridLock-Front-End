@@ -45,19 +45,22 @@
         <div class="col-3">
           <label class="col-sm-1 col-form-label">Type</label>
           <select class="col-3" [(ngModel)]="type" class="form-control" id="type" name="type">
+            <option selected value> -- Select an Option --</option>
             <option *ngFor="let t of types" [ngValue]="t">{{t}}</option>
           </select>
         </div>
         <div class="col-3">
           <label class="col-sm-1 col-form-label">Status</label>
           <select class="col-3" [(ngModel)]="status" class="form-control" id="status" name="status">
+            <option selected value> -- Select an Option --</option>
             <option *ngFor="let s of statuses" [ngValue]="s">{{s}}</option>
           </select>
         </div>
         <div class="col-3">
           <label class="col-sm-1 col-form-label">Manufacturer</label>
           <select class="col-3" [(ngModel)]="manufacturer" class="form-control" id="manufacturer" name="manufacturer">
-            <option *ngFor="let m of manufacturers" [ngValue]="m">{{m.name}}</option>
+            <option selected value> -- Select an Option --</option>
+            <option *ngFor="let m of manufacturers" [ngValue]="m.name">{{m.name}}</option>
           </select>
         </div>
       </div>
@@ -65,19 +68,22 @@
         <div class="col-3">
           <label class="col-sm-1 col-form-label">Location</label>
           <select class="col-3" [(ngModel)]="location" class="form-control" id="location" name="location">
-            <option *ngFor="let l of locations" [ngValue]="l">{{l.name}}</option>
+            <option selected value> -- Select an Option --</option>
+            <option *ngFor="let l of locations" [ngValue]="l.name">{{l.name}}</option>
           </select>
         </div>
         <div class="col-3">
           <label class="col-sm-1 col-form-label">Room</label>
           <select class="col-3" [(ngModel)]="room" class="form-control" id="room" name="room">
-            <option *ngFor="let r of rooms" [ngValue]="r">{{r.name}}</option>
+            <option selected value> -- Select an Option --</option>
+            <option *ngFor="let r of rooms" [ngValue]="r.name">{{r.name}}</option>
           </select>
         </div>
         <div class="col-3">
           <label class="col-sm-1 col-form-label">Owner</label>
           <select class="col-3" [(ngModel)]="owner" class="form-control" id="owner" name="owner">
-            <option *ngFor="let o of owners" [ngValue]="o">{{o.name}}</option>
+            <option selected value> -- Select an Option --</option>
+            <option *ngFor="let o of owners" [ngValue]="o.name">{{o.name}}</option>
           </select>
         </div>
       </div>
