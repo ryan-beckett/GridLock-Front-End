@@ -19,6 +19,30 @@ import {LocationService} from "./location/location.service";
 import {ContactService} from "./contact/contact.service";
 import {RoomService} from "./room/room.service";
 import {ManufacturerService} from "./manufacturer/manufacturer.service";
+import {DesktopDeviceComponent} from './desktop-device/desktop-device.component';
+import {MainFrameComponent} from './main-frame/main-frame.component';
+import {NetworkDeviceComponent} from './network-device/network-device.component';
+import {PatchPanelComponent} from './patch-panel/patch-panel.component';
+import {RackComponent} from './rack/rack.component';
+import {ServerDeviceComponent} from './server-device/server-device.component';
+import {StorageDeviceComponent} from './storage-device/storage-device.component';
+import {StorageFrameComponent} from './storage-frame/storage-frame.component';
+import {GridLocationComponent} from './grid-location/grid-location/grid-location.component';
+import {RackableDeviceComponent} from './rackable-device/rackable-device.component';
+import {ConfigurableDeviceComponent} from './configurable-device/configurable-device.component';
+import {NetworkConfigurationComponent} from './network-configuration/network-configuration.component';
+import {OSConfigurationComponent} from './os-configuration/os-configuration.component';
+import {HardwareConfigurationComponent} from './hardware-configuration/hardware-configuration.component';
+import {ConfigurationComponent} from './configuration/configuration.component';
+import {SupportUnitComponent} from './support-unit/support-unit.component';
+import {ServiceContractComponent} from './service-contract/service-contract.component';
+import {NetworkConnectionComponent} from './network-connection/network-connection.component';
+import {HopComponent} from './hop/hop.component';
+import {PortComponent} from './port/port.component';
+import {PermissionComponent} from './permission/permission.component';
+import {RoleComponent} from './role/role.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
+import {UserComponent} from './user/user.component';
 
 const appRoutes: Routes = [
   {
@@ -40,7 +64,31 @@ const appRoutes: Routes = [
     ManufacturerComponent,
     RoomComponent,
     BusinessUnitComponent,
-    BusinessComponent
+    BusinessComponent,
+    DesktopDeviceComponent,
+    MainFrameComponent,
+    NetworkDeviceComponent,
+    PatchPanelComponent,
+    RackComponent,
+    ServerDeviceComponent,
+    StorageDeviceComponent,
+    StorageFrameComponent,
+    GridLocationComponent,
+    RackableDeviceComponent,
+    ConfigurableDeviceComponent,
+    NetworkConfigurationComponent,
+    OSConfigurationComponent,
+    HardwareConfigurationComponent,
+    ConfigurationComponent,
+    SupportUnitComponent,
+    ServiceContractComponent,
+    NetworkConnectionComponent,
+    HopComponent,
+    PortComponent,
+    PermissionComponent,
+    RoleComponent,
+    UserProfileComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
