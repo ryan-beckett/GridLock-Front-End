@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 import {PatchPanel} from "./patch-panel";
-import {PatchPanel} from "../patchPanel/patchPanel";
 
 @Injectable()
 export class PatchPanelService {

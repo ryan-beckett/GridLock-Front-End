@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 import {Port} from "./port";
-import {Port} from "../port/port";
 
 @Injectable()
 export class PortService {

@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 import {Permission} from "./permission";
-import {Permission} from "../permission/permission";
 
 @Injectable()
 export class PermissionService {

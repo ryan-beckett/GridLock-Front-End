@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 import {OSConfiguration} from "./os-configuration";
-import {OSConfiguration} from "../osConfiguration/osConfiguration";
 
 @Injectable()
 export class OSConfigurationService {

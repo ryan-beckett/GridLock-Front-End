@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 import {StorageFrame} from "./storage-frame";
-import {StorageFrame} from "../storageFrame/storageFrame";
 
 @Injectable()
 export class StorageFrameService {
