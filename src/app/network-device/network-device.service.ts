@@ -6,29 +6,28 @@ import {NetworkDevice} from "./network-device";
 @Injectable()
 export class NetworkDeviceService {
 
-  private ASSET_API = "//localhost:8080/api/network-devices/";
+  private static API = "//localhost:8080/api/network-devices/";
 
   constructor(private http: HttpClient) {
   }
 
   getNetworkDevices(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(NetworkDeviceService.API);
   }
 
   getNetworkDeviceById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(NetworkDeviceService.API + "id/" + id);
   }
 
-  createNetworkDevice(asset: NetworkDevice): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createNetworkDevice(networkDevice: NetworkDevice): Observable<any> {
+    return this.http.post(NetworkDeviceService.API, JSON.stringify(networkDevice));
   }
 
-  updateNetworkDevice(id: string, asset: NetworkDevice): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateNetworkDevice(id: string, networkDevice: NetworkDevice): Observable<any> {
+    return this.http.put(NetworkDeviceService.API + "id/" + id, JSON.stringify(networkDevice));
   }
 
   deleteNetworkDevice(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(NetworkDeviceService.API + "id/" + id);
   }
-
 }

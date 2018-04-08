@@ -6,28 +6,28 @@ import {ServiceContract} from "./service-contract";
 @Injectable()
 export class ServiceContractService {
 
-  private ASSET_API = "//localhost:8080/api/service-contracts/";
+  private static API = "//localhost:8080/api/service-contracts/";
 
   constructor(private http: HttpClient) {
   }
 
   getServiceContracts(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(ServiceContractService.API);
   }
 
   getServiceContractById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(ServiceContractService.API + "id/" + id);
   }
 
-  createServiceContract(asset: ServiceContract): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createServiceContract(serviceContract: ServiceContract): Observable<any> {
+    return this.http.post(ServiceContractService.API, JSON.stringify(serviceContract));
   }
 
-  updateServiceContract(id: string, asset: ServiceContract): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateServiceContract(id: string, serviceContract: ServiceContract): Observable<any> {
+    return this.http.put(ServiceContractService.API + "id/" + id, JSON.stringify(serviceContract));
   }
 
   deleteServiceContract(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(ServiceContractService.API + "id/" + id);
   }
 }

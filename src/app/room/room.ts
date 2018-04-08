@@ -1,5 +1,7 @@
+import {Site} from "../site/site";
+
 export class Room {
   id: number;
   name: string;
-  location: Location;
+  site: Site;
 }

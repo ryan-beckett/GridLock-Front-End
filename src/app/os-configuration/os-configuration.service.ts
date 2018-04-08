@@ -2,33 +2,33 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
 import {OSConfiguration} from "./os-configuration";
+import {OSConfiguration} from "../osConfiguration/osConfiguration";
 
 @Injectable()
 export class OSConfigurationService {
 
-  private ASSET_API = "//localhost:8080/api/os-configurations/";
+  private static API = "//localhost:8080/api/os-configurations/";
 
   constructor(private http: HttpClient) {
   }
 
   getOSConfigurations(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(OSConfigurationService.API);
   }
 
   getOSConfigurationById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(OSConfigurationService.API + "id/" + id);
   }
 
-  createOSConfiguration(asset: OSConfiguration): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createOSConfiguration(osConfiguration: OSConfiguration): Observable<any> {
+    return this.http.post(OSConfigurationService.API, JSON.stringify(osConfiguration));
   }
 
-  updateOSConfiguration(id: string, asset: OSConfiguration): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateOSConfiguration(id: string, osConfiguration: OSConfiguration): Observable<any> {
+    return this.http.put(OSConfigurationService.API + "id/" + id, JSON.stringify(osConfiguration));
   }
 
   deleteOSConfiguration(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(OSConfigurationService.API + "id/" + id);
   }
-
 }

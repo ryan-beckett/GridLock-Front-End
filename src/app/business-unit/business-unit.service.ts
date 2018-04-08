@@ -6,29 +6,28 @@ import {BusinessUnit} from "./business-unit";
 @Injectable()
 export class BusinessUnitService {
 
-  private ASSET_API = "//localhost:8080/api/business-units/";
+  private static API = "//localhost:8080/api/business-units/";
 
   constructor(private http: HttpClient) {
   }
 
   getBusinessUnits(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(BusinessUnitService.API);
   }
 
   getBusinessUnitById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(BusinessUnitService.API + "id/" + id);
   }
 
-  createBusinessUnit(asset: BusinessUnit): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createBusinessUnit(businessUnit: BusinessUnit): Observable<any> {
+    return this.http.post(BusinessUnitService.API, JSON.stringify(businessUnit));
   }
 
-  updateBusinessUnit(id: string, asset: BusinessUnit): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateBusinessUnit(id: string, businessUnit: BusinessUnit): Observable<any> {
+    return this.http.put(BusinessUnitService.API + "id/" + id, JSON.stringify(businessUnit));
   }
 
   deleteBusinessUnit(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(BusinessUnitService.API + "id/" + id);
   }
-
 }

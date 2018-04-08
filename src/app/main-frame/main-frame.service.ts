@@ -6,28 +6,28 @@ import {MainFrame} from "./main-frame";
 @Injectable()
 export class MainFrameService {
 
-  private ASSET_API = "//localhost:8080/api/main-frames/";
+  private static API = "//localhost:8080/api/main-frames/";
 
   constructor(private http: HttpClient) {
   }
 
   getMainFrames(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(MainFrameService.API);
   }
 
   getMainFrameById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(MainFrameService.API + "id/" + id);
   }
 
-  createMainFrame(asset: MainFrame): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createMainFrame(mainFrame: MainFrame): Observable<any> {
+    return this.http.post(MainFrameService.API, JSON.stringify(mainFrame));
   }
 
-  updateMainFrame(id: string, asset: MainFrame): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateMainFrame(id: string, mainFrame: MainFrame): Observable<any> {
+    return this.http.put(MainFrameService.API + "id/" + id, JSON.stringify(mainFrame));
   }
 
   deleteMainFrame(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(MainFrameService.API + "id/" + id);
   }
 }

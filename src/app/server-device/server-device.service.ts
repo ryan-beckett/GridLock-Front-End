@@ -6,29 +6,28 @@ import {ServerDevice} from "./server-device";
 @Injectable()
 export class ServerDeviceService {
 
-  private ASSET_API = "//localhost:8080/api/server-devices/";
+  private static API = "//localhost:8080/api/server-devices/";
 
   constructor(private http: HttpClient) {
   }
 
   getServerDevices(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(ServerDeviceService.API);
   }
 
   getServerDeviceById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(ServerDeviceService.API + "id/" + id);
   }
 
-  createServerDevice(asset: ServerDevice): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createServerDevice(serverDevice: ServerDevice): Observable<any> {
+    return this.http.post(ServerDeviceService.API, JSON.stringify(serverDevice));
   }
 
-  updateServerDevice(id: string, asset: ServerDevice): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateServerDevice(id: string, serverDevice: ServerDevice): Observable<any> {
+    return this.http.put(ServerDeviceService.API + "id/" + id, JSON.stringify(serverDevice));
   }
 
   deleteServerDevice(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(ServerDeviceService.API + "id/" + id);
   }
-
 }

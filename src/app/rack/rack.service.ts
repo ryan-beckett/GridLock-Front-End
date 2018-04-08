@@ -6,29 +6,28 @@ import {Rack} from "./rack";
 @Injectable()
 export class RackService {
 
-  private ASSET_API = "//localhost:8080/api/racks/";
+  private static API = "//localhost:8080/api/racks/";
 
   constructor(private http: HttpClient) {
   }
 
   getRacks(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(RackService.API);
   }
 
   getRackById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(RackService.API + "id/" + id);
   }
 
-  createRack(asset: Rack): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createRack(rack: Rack): Observable<any> {
+    return this.http.post(RackService.API, JSON.stringify(rack));
   }
 
-  updateRack(id: string, asset: Rack): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateRack(id: string, rack: Rack): Observable<any> {
+    return this.http.put(RackService.API + "id/" + id, JSON.stringify(rack));
   }
 
   deleteRack(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(RackService.API + "id/" + id);
   }
-
 }

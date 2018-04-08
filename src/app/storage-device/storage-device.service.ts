@@ -6,28 +6,28 @@ import {StorageDevice} from "./storage-device";
 @Injectable()
 export class StorageDeviceService {
 
-  private ASSET_API = "//localhost:8080/api/storage-devices/";
+  private static API = "//localhost:8080/api/storage-devices/";
 
   constructor(private http: HttpClient) {
   }
 
   getStorageDevices(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(StorageDeviceService.API);
   }
 
   getStorageDeviceById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(StorageDeviceService.API + "id/" + id);
   }
 
-  createStorageDevice(asset: StorageDevice): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createStorageDevice(storageDevice: StorageDevice): Observable<any> {
+    return this.http.post(StorageDeviceService.API, JSON.stringify(storageDevice));
   }
 
-  updateStorageDevice(id: string, asset: StorageDevice): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateStorageDevice(id: string, storageDevice: StorageDevice): Observable<any> {
+    return this.http.put(StorageDeviceService.API + "id/" + id, JSON.stringify(storageDevice));
   }
 
   deleteStorageDevice(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(StorageDeviceService.API + "id/" + id);
   }
 }

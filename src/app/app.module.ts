@@ -27,7 +27,7 @@ import {RackComponent} from './rack/rack.component';
 import {ServerDeviceComponent} from './server-device/server-device.component';
 import {StorageDeviceComponent} from './storage-device/storage-device.component';
 import {StorageFrameComponent} from './storage-frame/storage-frame.component';
-import {GridLocationComponent} from './grid-location/grid-location/grid-location.component';
+import {GridLocationComponent} from './grid-location/grid-location.component';
 import {RackableDeviceComponent} from './rackable-device/rackable-device.component';
 import {ConfigurableDeviceComponent} from './configurable-device/configurable-device.component';
 import {NetworkConfigurationComponent} from './network-configuration/network-configuration.component';
@@ -43,6 +43,7 @@ import {PermissionComponent} from './permission/permission.component';
 import {RoleComponent} from './role/role.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UserComponent} from './user/user.component';
+import {SiteComponent} from './site/site.component';
 
 const appRoutes: Routes = [
   {
@@ -88,7 +89,8 @@ const appRoutes: Routes = [
     PermissionComponent,
     RoleComponent,
     UserProfileComponent,
-    UserComponent
+    UserComponent,
+    SiteComponent
   ],
   imports: [
     BrowserModule,

@@ -6,28 +6,28 @@ import {Hop} from "./hop";
 @Injectable()
 export class HopService {
 
-  private ASSET_API = "//localhost:8080/api/hops/";
+  private static API = "//localhost:8080/api/hops/";
 
   constructor(private http: HttpClient) {
   }
 
   getHops(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(HopService.API);
   }
 
   getHopById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(HopService.API + "id/" + id);
   }
 
-  createHop(asset: Hop): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createHop(hop: Hop): Observable<any> {
+    return this.http.post(HopService.API, JSON.stringify(hop));
   }
 
-  updateHop(id: string, asset: Hop): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateHop(id: string, hop: Hop): Observable<any> {
+    return this.http.put(HopService.API + "id/" + id, JSON.stringify(hop));
   }
 
   deleteHop(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(HopService.API + "id/" + id);
   }
 }

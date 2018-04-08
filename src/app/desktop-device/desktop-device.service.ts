@@ -6,28 +6,28 @@ import {DesktopDevice} from "./desktop-device";
 @Injectable()
 export class DesktopDeviceService {
 
-  private ASSET_API = "//localhost:8080/api/desktop-devices/";
+  private static API = "//localhost:8080/api/desktop-devices/";
 
   constructor(private http: HttpClient) {
   }
 
   getDesktopDevices(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(DesktopDeviceService.API);
   }
 
   getDesktopDeviceById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(DesktopDeviceService.API + "id/" + id);
   }
 
-  createDesktopDevice(asset: DesktopDevice): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createDesktopDevice(desktopDevice: DesktopDevice): Observable<any> {
+    return this.http.post(DesktopDeviceService.API, JSON.stringify(desktopDevice));
   }
 
-  updateDesktopDevice(id: string, asset: DesktopDevice): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateDesktopDevice(id: string, desktopDevice: DesktopDevice): Observable<any> {
+    return this.http.put(DesktopDeviceService.API + "id/" + id, JSON.stringify(desktopDevice));
   }
 
   deleteDesktopDevice(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(DesktopDeviceService.API + "id/" + id);
   }
 }

@@ -6,29 +6,28 @@ import {Configuration} from "./configuration";
 @Injectable()
 export class ConfigurationService {
 
-  private ASSET_API = "//localhost:8080/api/configurations/";
+  private static API = "//localhost:8080/api/configurations/";
 
   constructor(private http: HttpClient) {
   }
 
   getConfigurations(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(ConfigurationService.API);
   }
 
   getConfigurationById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(ConfigurationService.API + "id/" + id);
   }
 
-  createConfiguration(asset: Configuration): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createConfiguration(configuration: Configuration): Observable<any> {
+    return this.http.post(ConfigurationService.API, JSON.stringify(configuration));
   }
 
-  updateConfiguration(id: string, asset: Configuration): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateConfiguration(id: string, configuration: Configuration): Observable<any> {
+    return this.http.put(ConfigurationService.API + "id/" + id, JSON.stringify(configuration));
   }
 
   deleteConfiguration(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(ConfigurationService.API + "id/" + id);
   }
-
 }

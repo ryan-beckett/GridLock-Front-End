@@ -6,28 +6,28 @@ import {RackableDevice} from "./rackable-device";
 @Injectable()
 export class RackableDeviceService {
 
-  private ASSET_API = "//localhost:8080/api/rackable-devices/";
+  private static API = "//localhost:8080/api/rackable-devices/";
 
   constructor(private http: HttpClient) {
   }
 
   getRackableDevices(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(RackableDeviceService.API);
   }
 
   getRackableDeviceById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(RackableDeviceService.API + "id/" + id);
   }
 
-  createRackableDevice(asset: RackableDevice): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createRackableDevice(rackableDevice: RackableDevice): Observable<any> {
+    return this.http.post(RackableDeviceService.API, JSON.stringify(rackableDevice));
   }
 
-  updateRackableDevice(id: string, asset: RackableDevice): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateRackableDevice(id: string, rackableDevice: RackableDevice): Observable<any> {
+    return this.http.put(RackableDeviceService.API + "id/" + id, JSON.stringify(rackableDevice));
   }
 
   deleteRackableDevice(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(RackableDeviceService.API + "id/" + id);
   }
 }

@@ -6,29 +6,28 @@ import {UserProfile} from "./user-profile";
 @Injectable()
 export class UserProfileService {
 
-  private ASSET_API = "//localhost:8080/api/user-profiles/";
+  private static API = "//localhost:8080/api/userProfiles/";
 
   constructor(private http: HttpClient) {
   }
 
   getUserProfiles(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(UserProfileService.API);
   }
 
   getUserProfileById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(UserProfileService.API + "id/" + id);
   }
 
-  createUserProfile(asset: UserProfile): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createUserProfile(userProfile: UserProfile): Observable<any> {
+    return this.http.post(UserProfileService.API, JSON.stringify(userProfile));
   }
 
-  updateUserProfile(id: string, asset: UserProfile): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateUserProfile(id: string, userProfile: UserProfile): Observable<any> {
+    return this.http.put(UserProfileService.API + "id/" + id, JSON.stringify(userProfile));
   }
 
   deleteUserProfile(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(UserProfileService.API + "id/" + id);
   }
-
 }

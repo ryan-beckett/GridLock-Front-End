@@ -6,29 +6,28 @@ import {GridLocation} from "./grid-location";
 @Injectable()
 export class GridLocationService {
 
-  private ASSET_API = "//localhost:8080/api/grid-locations/";
+  private static API = "//localhost:8080/api/grid-locations/";
 
   constructor(private http: HttpClient) {
   }
 
   getGridLocations(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(GridLocationService.API);
   }
 
   getGridLocationById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(GridLocationService.API + "id/" + id);
   }
 
-  createGridLocation(asset: GridLocation): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createGridLocation(gridLocation: GridLocation): Observable<any> {
+    return this.http.post(GridLocationService.API, JSON.stringify(gridLocation));
   }
 
-  updateGridLocation(id: string, asset: GridLocation): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateGridLocation(id: string, gridLocation: GridLocation): Observable<any> {
+    return this.http.put(GridLocationService.API + "id/" + id, JSON.stringify(gridLocation));
   }
 
   deleteGridLocation(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(GridLocationService.API + "id/" + id);
   }
-
 }

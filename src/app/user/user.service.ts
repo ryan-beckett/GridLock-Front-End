@@ -6,28 +6,28 @@ import {User} from "./user";
 @Injectable()
 export class UserService {
 
-  private ASSET_API = "//localhost:8080/api/users/";
+  private static API = "//localhost:8080/api/users/";
 
   constructor(private http: HttpClient) {
   }
 
   getUsers(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(UserService.API);
   }
 
   getUserById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(UserService.API + "id/" + id);
   }
 
-  createUser(asset: User): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createUser(user: User): Observable<any> {
+    return this.http.post(UserService.API, JSON.stringify(user));
   }
 
-  updateUser(id: string, asset: User): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateUser(id: string, user: User): Observable<any> {
+    return this.http.put(UserService.API + "id/" + id, JSON.stringify(user));
   }
 
   deleteUser(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(UserService.API + "id/" + id);
   }
 }

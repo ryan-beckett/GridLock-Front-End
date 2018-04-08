@@ -6,28 +6,28 @@ import {NetworkConfiguration} from "./network-configuration";
 @Injectable()
 export class NetworkConfigurationService {
 
-  private ASSET_API = "//localhost:8080/api/network-configurations/";
+  private static API = "//localhost:8080/api/network-configurations/";
 
   constructor(private http: HttpClient) {
   }
 
   getNetworkConfigurations(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(NetworkConfigurationService.API);
   }
 
   getNetworkConfigurationById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(NetworkConfigurationService.API + "id/" + id);
   }
 
-  createNetworkConfiguration(asset: NetworkConfiguration): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createNetworkConfiguration(networkConfiguration: NetworkConfiguration): Observable<any> {
+    return this.http.post(NetworkConfigurationService.API, JSON.stringify(networkConfiguration));
   }
 
-  updateNetworkConfiguration(id: string, asset: NetworkConfiguration): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateNetworkConfiguration(id: string, networkConfiguration: NetworkConfiguration): Observable<any> {
+    return this.http.put(NetworkConfigurationService.API + "id/" + id, JSON.stringify(networkConfiguration));
   }
 
   deleteNetworkConfiguration(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(NetworkConfigurationService.API + "id/" + id);
   }
 }

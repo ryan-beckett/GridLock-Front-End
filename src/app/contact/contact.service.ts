@@ -3,31 +3,32 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {Contact} from "./contact";
 
+
 @Injectable()
 export class ContactService {
 
-  private ASSET_API = "//localhost:8080/api/contacts/";
+  private static API = "//localhost:8080/api/contacts/";
 
   constructor(private http: HttpClient) {
   }
 
   getContacts(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(ContactService.API);
   }
 
   getContactById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(ContactService.API + "id/" + id);
   }
 
-  createContact(asset: Contact): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createContact(contact: Contact): Observable<any> {
+    return this.http.post(ContactService.API, JSON.stringify(contact));
   }
 
-  updateContact(id: string, asset: Contact): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateContact(id: string, contact: Contact): Observable<any> {
+    return this.http.put(ContactService.API + "id/" + id, JSON.stringify(contact));
   }
 
   deleteContact(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(ContactService.API + "id/" + id);
   }
 }

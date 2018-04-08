@@ -8,36 +8,36 @@ declare var $: any;
 @Injectable()
 export class AssetService {
 
-  private ASSET_API = "//localhost:8080/api/assets/";
+  private static API = "//localhost:8080/api/assets/";
 
   constructor(private http: HttpClient) {
   }
 
   getAssets(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(AssetService.API);
   }
 
   getAssetById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(AssetService.API + "id/" + id);
   }
 
   createAsset(asset: Asset): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+    return this.http.post(AssetService.API, JSON.stringify(asset));
   }
 
   updateAsset(id: string, asset: Asset): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+    return this.http.put(AssetService.API + "id/" + id, JSON.stringify(asset));
   }
 
   deleteAsset(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(AssetService.API + "id/" + id);
   }
 
   getAssetsByName(name: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "name/" + name);
+    return this.http.get(AssetService.API + "name/" + name);
   }
 
   getAssetByQueryParams(params: {}): Observable<any> {
-    return this.http.get(this.ASSET_API + "query/?" + $.param(params));
+    return this.http.get(AssetService.API + "query/?" + $.param(params));
   }
 }

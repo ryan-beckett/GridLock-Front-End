@@ -6,28 +6,28 @@ import {NetworkConnection} from "./network-connection";
 @Injectable()
 export class NetworkConnectionService {
 
-  private ASSET_API = "//localhost:8080/api/network-connections/";
+  private static API = "//localhost:8080/api/network-connections/";
 
   constructor(private http: HttpClient) {
   }
 
   getNetworkConnections(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(NetworkConnectionService.API);
   }
 
   getNetworkConnectionById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(NetworkConnectionService.API + "id/" + id);
   }
 
-  createNetworkConnection(asset: NetworkConnection): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createNetworkConnection(networkConnection: NetworkConnection): Observable<any> {
+    return this.http.post(NetworkConnectionService.API, JSON.stringify(networkConnection));
   }
 
-  updateNetworkConnection(id: string, asset: NetworkConnection): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateNetworkConnection(id: string, networkConnection: NetworkConnection): Observable<any> {
+    return this.http.put(NetworkConnectionService.API + "id/" + id, JSON.stringify(networkConnection));
   }
 
   deleteNetworkConnection(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(NetworkConnectionService.API + "id/" + id);
   }
 }

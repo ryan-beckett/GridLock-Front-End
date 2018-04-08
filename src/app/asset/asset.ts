@@ -7,7 +7,6 @@ export class Asset {
   model: string;
   partNumber: string;
   description: string;
-  location: object;
   room: object;
   type: string;
   status: string;

@@ -1,34 +1,34 @@
 import {Injectable} from '@angular/core';
-import {Port} from "../asset/asset";
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
+import {Port} from "./port";
+import {Port} from "../port/port";
 
 @Injectable()
 export class PortService {
 
-  private ASSET_API = "//localhost:8080/api/ports/";
+  private static API = "//localhost:8080/api/ports/";
 
   constructor(private http: HttpClient) {
   }
 
   getPorts(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(PortService.API);
   }
 
   getPortById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(PortService.API + "id/" + id);
   }
 
-  createPort(asset: Port): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createPort(port: Port): Observable<any> {
+    return this.http.post(PortService.API, JSON.stringify(port));
   }
 
-  updatePort(id: string, asset: Port): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updatePort(id: string, port: Port): Observable<any> {
+    return this.http.put(PortService.API + "id/" + id, JSON.stringify(port));
   }
 
   deletePort(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(PortService.API + "id/" + id);
   }
-
 }

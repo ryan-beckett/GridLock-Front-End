@@ -6,28 +6,28 @@ import {ConfigurableDevice} from "./configurable-device";
 @Injectable()
 export class ConfigurableDeviceService {
 
-  private ASSET_API = "//localhost:8080/api/configurable-devices/";
+  private static API = "//localhost:8080/api/configurable-devices/";
 
   constructor(private http: HttpClient) {
   }
 
   getConfigurableDevices(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(ConfigurableDeviceService.API);
   }
 
   getConfigurableDeviceById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(ConfigurableDeviceService.API + "id/" + id);
   }
 
-  createConfigurableDevice(asset: ConfigurableDevice): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createConfigurableDevice(configurableDevice: ConfigurableDevice): Observable<any> {
+    return this.http.post(ConfigurableDeviceService.API, JSON.stringify(configurableDevice));
   }
 
-  updateConfigurableDevice(id: string, asset: ConfigurableDevice): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateConfigurableDevice(id: string, configurableDevice: ConfigurableDevice): Observable<any> {
+    return this.http.put(ConfigurableDeviceService.API + "id/" + id, JSON.stringify(configurableDevice));
   }
 
   deleteConfigurableDevice(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(ConfigurableDeviceService.API + "id/" + id);
   }
 }

@@ -6,28 +6,28 @@ import {SupportUnit} from "./support-unit";
 @Injectable()
 export class SupportUnitService {
 
-  private ASSET_API = "//localhost:8080/api/support-units/";
+  private static API = "//localhost:8080/api/support-units/";
 
   constructor(private http: HttpClient) {
   }
 
   getSupportUnits(): Observable<any> {
-    return this.http.get(this.ASSET_API);
+    return this.http.get(SupportUnitService.API);
   }
 
   getSupportUnitById(id: string): Observable<any> {
-    return this.http.get(this.ASSET_API + "id/" + id);
+    return this.http.get(SupportUnitService.API + "id/" + id);
   }
 
-  createSupportUnit(asset: SupportUnit): Observable<any> {
-    return this.http.post(this.ASSET_API, JSON.stringify(asset));
+  createSupportUnit(supportUnit: SupportUnit): Observable<any> {
+    return this.http.post(SupportUnitService.API, JSON.stringify(supportUnit));
   }
 
-  updateSupportUnit(id: string, asset: SupportUnit): Observable<any> {
-    return this.http.put(this.ASSET_API + "id/" + id, JSON.stringify(asset));
+  updateSupportUnit(id: string, supportUnit: SupportUnit): Observable<any> {
+    return this.http.put(SupportUnitService.API + "id/" + id, JSON.stringify(supportUnit));
   }
 
   deleteSupportUnit(id: string): Observable<any> {
-    return this.http.delete(this.ASSET_API + "id/" + id);
+    return this.http.delete(SupportUnitService.API + "id/" + id);
   }
 }
