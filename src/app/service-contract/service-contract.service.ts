@@ -6,7 +6,7 @@ import {ServiceContract} from "./service-contract";
 @Injectable()
 export class ServiceContractService {
 
-  private static API = "//localhost:8080/api/service-contracts/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/service-contracts/";
 
   constructor(private http: HttpClient) {
   }

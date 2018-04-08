@@ -6,7 +6,7 @@ import {UserProfile} from "./user-profile";
 @Injectable()
 export class UserProfileService {
 
-  private static API = "//localhost:8080/api/userProfiles/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/userProfiles/";
 
   constructor(private http: HttpClient) {
   }

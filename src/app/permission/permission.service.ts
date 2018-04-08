@@ -7,7 +7,7 @@ import {Permission} from "../permission/permission";
 @Injectable()
 export class PermissionService {
 
-  private static API = "//localhost:8080/api/permissions/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/permissions/";
 
   constructor(private http: HttpClient) {
   }

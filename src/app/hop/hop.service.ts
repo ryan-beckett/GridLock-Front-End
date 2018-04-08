@@ -6,7 +6,7 @@ import {Hop} from "./hop";
 @Injectable()
 export class HopService {
 
-  private static API = "//localhost:8080/api/hops/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/hops/";
 
   constructor(private http: HttpClient) {
   }

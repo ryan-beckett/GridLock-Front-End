@@ -6,7 +6,7 @@ import {Business} from "../business/business";
 @Injectable()
 export class BusinessService {
 
-  private static API = "//localhost:8080/api/businesses/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/businesses/";
 
   constructor(private http: HttpClient) {
   }

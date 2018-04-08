@@ -7,7 +7,7 @@ import {Contact} from "./contact";
 @Injectable()
 export class ContactService {
 
-  private static API = "//localhost:8080/api/contacts/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/contacts/";
 
   constructor(private http: HttpClient) {
   }

@@ -6,7 +6,7 @@ import {RackableDevice} from "./rackable-device";
 @Injectable()
 export class RackableDeviceService {
 
-  private static API = "//localhost:8080/api/rackable-devices/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/rackable-devices/";
 
   constructor(private http: HttpClient) {
   }

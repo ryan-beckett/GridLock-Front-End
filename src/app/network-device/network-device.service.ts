@@ -6,7 +6,7 @@ import {NetworkDevice} from "./network-device";
 @Injectable()
 export class NetworkDeviceService {
 
-  private static API = "//localhost:8080/api/network-devices/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/network-devices/";
 
   constructor(private http: HttpClient) {
   }

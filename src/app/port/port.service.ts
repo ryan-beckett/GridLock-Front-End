@@ -7,7 +7,7 @@ import {Port} from "../port/port";
 @Injectable()
 export class PortService {
 
-  private static API = "//localhost:8080/api/ports/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/ports/";
 
   constructor(private http: HttpClient) {
   }

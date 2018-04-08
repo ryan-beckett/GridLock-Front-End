@@ -6,7 +6,7 @@ import {ServerDevice} from "./server-device";
 @Injectable()
 export class ServerDeviceService {
 
-  private static API = "//localhost:8080/api/server-devices/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/server-devices/";
 
   constructor(private http: HttpClient) {
   }

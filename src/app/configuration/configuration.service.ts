@@ -6,7 +6,7 @@ import {Configuration} from "./configuration";
 @Injectable()
 export class ConfigurationService {
 
-  private static API = "//localhost:8080/api/configurations/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/configurations/";
 
   constructor(private http: HttpClient) {
   }

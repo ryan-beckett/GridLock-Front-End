@@ -6,7 +6,7 @@ import {ConfigurableDevice} from "./configurable-device";
 @Injectable()
 export class ConfigurableDeviceService {
 
-  private static API = "//localhost:8080/api/configurable-devices/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/configurable-devices/";
 
   constructor(private http: HttpClient) {
   }

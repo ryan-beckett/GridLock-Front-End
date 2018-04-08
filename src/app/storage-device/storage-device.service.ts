@@ -6,7 +6,7 @@ import {StorageDevice} from "./storage-device";
 @Injectable()
 export class StorageDeviceService {
 
-  private static API = "//localhost:8080/api/storage-devices/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/storage-devices/";
 
   constructor(private http: HttpClient) {
   }

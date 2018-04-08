@@ -6,7 +6,7 @@ import {Rack} from "./rack";
 @Injectable()
 export class RackService {
 
-  private static API = "//localhost:8080/api/racks/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/racks/";
 
   constructor(private http: HttpClient) {
   }

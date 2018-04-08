@@ -6,7 +6,7 @@ import {Location} from "./location";
 @Injectable()
 export class LocationService {
 
-  private static API = "//localhost:8080/api/locations/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/locations/";
 
   constructor(private http: HttpClient) {
   }

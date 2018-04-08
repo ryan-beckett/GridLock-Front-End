@@ -8,7 +8,7 @@ declare var $: any;
 @Injectable()
 export class AssetService {
 
-  private static API = "//localhost:8080/api/assets/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/assets/";
 
   constructor(private http: HttpClient) {
   }

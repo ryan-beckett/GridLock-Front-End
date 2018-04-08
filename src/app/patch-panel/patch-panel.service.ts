@@ -7,7 +7,7 @@ import {PatchPanel} from "../patchPanel/patchPanel";
 @Injectable()
 export class PatchPanelService {
 
-  private static API = "//localhost:8080/api/patch-panels/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/patch-panels/";
 
   constructor(private http: HttpClient) {
   }

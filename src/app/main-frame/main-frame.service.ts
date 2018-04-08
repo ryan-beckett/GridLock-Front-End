@@ -6,7 +6,7 @@ import {MainFrame} from "./main-frame";
 @Injectable()
 export class MainFrameService {
 
-  private static API = "//localhost:8080/api/main-frames/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/main-frames/";
 
   constructor(private http: HttpClient) {
   }

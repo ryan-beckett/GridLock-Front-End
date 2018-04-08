@@ -7,7 +7,7 @@ import {OSConfiguration} from "../osConfiguration/osConfiguration";
 @Injectable()
 export class OSConfigurationService {
 
-  private static API = "//localhost:8080/api/os-configurations/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/os-configurations/";
 
   constructor(private http: HttpClient) {
   }

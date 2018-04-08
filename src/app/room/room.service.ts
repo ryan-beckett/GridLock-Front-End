@@ -6,7 +6,7 @@ import {Room} from "./room";
 @Injectable()
 export class RoomService {
 
-  private static API = "//localhost:8080/api/rooms/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/rooms/";
 
   constructor(private http: HttpClient) {
   }

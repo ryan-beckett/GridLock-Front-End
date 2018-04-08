@@ -6,7 +6,7 @@ import {HardwareConfiguration} from "./hardware-configuration";
 @Injectable()
 export class HardwareConfigurationService {
 
-  private static API = "//localhost:8080/api/hardware-configurations/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/hardware-configurations/";
 
   constructor(private http: HttpClient) {
   }

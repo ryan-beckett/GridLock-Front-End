@@ -6,7 +6,7 @@ import {Role} from "./role";
 @Injectable()
 export class RoleService {
 
-  private static API = "//localhost:8080/api/roles/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/roles/";
 
   constructor(private http: HttpClient) {
   }

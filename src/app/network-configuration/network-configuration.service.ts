@@ -6,7 +6,7 @@ import {NetworkConfiguration} from "./network-configuration";
 @Injectable()
 export class NetworkConfigurationService {
 
-  private static API = "//localhost:8080/api/network-configurations/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/network-configurations/";
 
   constructor(private http: HttpClient) {
   }

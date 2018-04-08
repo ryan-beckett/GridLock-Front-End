@@ -6,7 +6,7 @@ import {Site} from "../site/site";
 @Injectable()
 export class SiteService {
 
-  private static API = "//localhost:8080/api/sites/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/sites/";
 
   constructor(private http: HttpClient) {
   }

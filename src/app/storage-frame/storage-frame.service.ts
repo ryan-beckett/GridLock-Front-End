@@ -7,7 +7,7 @@ import {StorageFrame} from "../storageFrame/storageFrame";
 @Injectable()
 export class StorageFrameService {
 
-  private static API = "//localhost:8080/api/storage-frames/";
+  private static API = "https://gridlock-backend.herokuapp.com/api/storage-frames/";
 
   constructor(private http: HttpClient) {
   }
