@@ -1,6 +1,0 @@
-{
-  "/api/*": {
-    "target": "http:https://gridlock-backend.herokuapp.com/api",
-    "secure": false
-  }
-}

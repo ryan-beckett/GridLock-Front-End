@@ -20,10 +20,12 @@ exports.config = {
     print: function () {
     }
   },
-  onPrepare() {
+  beforeLaunch: function () {
     require('ts-node').register({
       project: 'e2e/tsconfig.e2e.json'
     });
+  },
+  onPrepare() {
     jasmine.getEnv().addReporter(new SpecReporter({spec: {displayStacktrace: true}}));
   }
 };
