@@ -40,8 +40,4 @@ export class AssetService {
   getAssetByQueryParams(params: {}): Observable<any> {
     return this.http.get(AssetService.API + "query/?" + $.param(params));
   }
-
-  count(): Observable<any> {
-    return this.http.get(AssetService.API + "count");
-  }
 }

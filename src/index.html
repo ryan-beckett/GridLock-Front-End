@@ -1,116 +1,55 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <title>GridLock</title>
-  <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/img/favicon-16x16.png">
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/site.css">
+  <script src="resources/js/jquery-3.3.1.min.js"></script>
+  <script src="resources/js/popper.min.js"></script>
+  <script src="resources/js/bootstrap.min.js"></script>
+  <script src="resources/js/site.js"></script>
 </head>
-<style>
-  vr-root > .background {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #FFF;
-  }
-
-  vr-root > .background > .wrapper {
-    position: fixed;
-    top: calc(50% - 30px);
-    left: 50%;
-  }
-
-  vr-root > .background > .wrapper > .loading {
-    margin-left: -34px;
-    margin-top: 40px;
-  }
-
-  @-webkit-keyframes ball-scale-multiple {
-    0% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-      opacity: 0;
-    }
-    5% {
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      opacity: 0;
-    }
-  }
-
-  @keyframes ball-scale-multiple {
-    0% {
-      -webkit-transform: scale(0);
-      transform: scale(0);
-      opacity: 0;
-    }
-    5% {
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-      opacity: 0;
-    }
-  }
-
-  .ball-scale-multiple {
-    position: relative;
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-
-  .ball-scale-multiple > div:nth-child(2) {
-    -webkit-animation-delay: -0.4s;
-    animation-delay: -0.4s;
-  }
-
-  .ball-scale-multiple > div:nth-child(3) {
-    -webkit-animation-delay: -0.2s;
-    animation-delay: -0.2s;
-  }
-
-  .ball-scale-multiple > div {
-    background-color: #2B303B;
-    border-radius: 100%;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    position: absolute;
-    left: -30px;
-    top: 0;
-    opacity: 0;
-    margin: 0;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
-    animation: ball-scale-multiple 1s 0s linear infinite;
-  }
-
-</style>
-
 <body>
-<vr-root>
-  <div class="background">
-    <div class="wrapper">
-      <div class="ball-scale-multiple">
-        <div></div>
-        <div></div>
-        <div></div>
-        </div>
-      <div class="loading">Loading</div>
+<!-- Start Navigation Bar ---------------------------------------------------------------------------->
+<nav class="navbar navbar-expand-lg" style="background-color: black" height="50">
+  <a class="navbar-brand" href="">
+    <img src="resources/img/site-logo.png" alt="Site Logo" width="240" height="48"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Asset Search</a>
+      <a class="nav-item nav-link" href="#">Grid Viewer</a>
+      <a class="nav-item nav-link" href="#">Path Network</a>
     </div>
   </div>
-</vr-root>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Options
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">View Profile</a>
+          <a class="dropdown-item" href="#">Help</a>
+        </div>
+      </li>
+      <li><a class="nav-item nav-link" href="#">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- Start Body ---------------------------------------------------------------------------->
+<div class="container-fluid">
+  <br/>
+  <app-root></app-root>
+</div>
 </body>
 </html>
