@@ -44,6 +44,33 @@ import {RoleComponent} from './role/role.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UserComponent} from './user/user.component';
 import {SiteComponent} from './site/site.component';
+import {ConfigurationService} from "./configuration/configuration.service";
+import {ConfigurableDeviceService} from "./configurable-device/configurable-device.service";
+import {DesktopDeviceService} from "./desktop-device/desktop-device.service";
+import {GridLocationService} from "./grid-location/grid-location.service";
+import {HardwareConfigurationService} from "./hardware-configuration/hardware-configuration.service";
+import {HopService} from "./hop/hop.service";
+import {MainFrameService} from "./main-frame/main-frame.service";
+import {NetworkConfigurationService} from "./network-configuration/network-configuration.service";
+import {NetworkConnectionService} from "./network-connection/network-connection.service";
+import {PatchPanelService} from "./patch-panel/patch-panel.service";
+import {RackableDeviceService} from "./rackable-device/rackable-device.service";
+import {ServiceContractService} from "./service-contract/service-contract.service";
+import {SupportUnitService} from "./support-unit/support-unit.service";
+import {UserProfileService} from "./user-profile/user-profile.service";
+import {UserService} from "./user/user.service";
+import {StorageFrameService} from "./storage-frame/storage-frame.service";
+import {StorageDeviceService} from "./storage-device/storage-device.service";
+import {SiteService} from "./site/site.service";
+import {ServerDeviceService} from "./server-device/server-device.service";
+import {RoleService} from "./role/role.service";
+import {RackService} from "./rack/rack.service";
+import {PortService} from "./port/port.service";
+import {PermissionService} from "./permission/permission.service";
+import {OSConfigurationService} from "./os-configuration/os-configuration.service";
+import {NetworkDeviceService} from "./network-device/network-device.service";
+import {ContactComponent} from "./contact/contact.component";
+import {LocationComponent} from "./location/location.component";
 
 const appRoutes: Routes = [
   {
@@ -90,7 +117,9 @@ const appRoutes: Routes = [
     RoleComponent,
     UserProfileComponent,
     UserComponent,
-    SiteComponent
+    SiteComponent,
+    ContactComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
@@ -100,8 +129,14 @@ const appRoutes: Routes = [
     AlertModule.forRoot()
   ],
   providers: [HttpClientModule, AssetService, BusinessService,
-    BusinessUnitService, ContactService, LocationService,
-    ManufacturerService, RoomService],
+    BusinessUnitService, ConfigurableDeviceService, ConfigurationService,
+    ContactService, DesktopDeviceService, GridLocationService, HardwareConfigurationService,
+    HopService, LocationService, MainFrameService, ManufacturerService, NetworkConfigurationService,
+    NetworkConnectionService, NetworkDeviceService, OSConfigurationService, PatchPanelService, PermissionService,
+    PortService, RackService, RackableDeviceService, RoleService, RoomService, ServerDeviceService,
+    ServiceContractService, SiteService, StorageDeviceService, StorageFrameService, SupportUnitService, UserService,
+    UserProfileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
