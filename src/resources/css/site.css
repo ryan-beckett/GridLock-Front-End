@@ -7,3 +7,8 @@ nav div ul li a {
   color: white;
   font-weight: bold;
 }
+
+.navbar-nav > a {
+  margin-left: 10%;
+  margin-right: 10%;
+}

@@ -4,7 +4,6 @@ import {AlertModule} from 'ngx-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {AssetComponent} from './asset/asset.component';
-import {AssetTableComponent} from './asset-table/asset-table.component';
 import {AssetSearchComponent} from './asset-search/asset-search.component';
 import {FormsModule} from "@angular/forms";
 import {AssetService} from "./asset/asset.service";
@@ -74,12 +73,40 @@ import {LocationComponent} from "./location/location.component";
 
 const appRoutes: Routes = [
   {
-    path: 'asset-table/search',
-    component: AssetTableComponent
+    path: 'rack/:id',
+    component: RackComponent
   },
   {
-    path: 'asset/:id',
-    component: AssetComponent
+    path: 'desktop-device/:id',
+    component: DesktopDeviceComponent
+  },
+  {
+    path: 'main-frame/:id',
+    component: MainFrameComponent
+  },
+  {
+    path: 'network-device/:id',
+    component: NetworkDeviceComponent
+  },
+  {
+    path: 'patch-panel/:id',
+    component: PatchPanelComponent
+  },
+  {
+    path: 'server-device/:id',
+    component: ServerDeviceComponent
+  },
+  {
+    path: 'storage-device/:id',
+    component: StorageDeviceComponent
+  },
+  {
+    path: 'storage-frame/:id',
+    component: StorageFrameComponent
+  },
+  {
+    path: 'asset-search',
+    component: AssetSearchComponent
   }
 ];
 
@@ -87,7 +114,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AssetComponent,
-    AssetTableComponent,
     AssetSearchComponent,
     ManufacturerComponent,
     RoomComponent,

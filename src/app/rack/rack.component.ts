@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {RackService} from "./rack.service";
+import {Rack} from "./rack";
 
 @Component({
   selector: 'app-rack',
@@ -7,10 +10,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RackComponent implements OnInit {
 
-  constructor() {
+  rack: Rack;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private rackService: RackService) {
   }
 
   ngOnInit() {
+    //$('#rack-table').DataTable();
   }
-
 }

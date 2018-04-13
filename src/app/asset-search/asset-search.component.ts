@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewChecked, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Manufacturer} from "../manufacturer/manufacturer";
 import {BusinessUnit} from "../business-unit/business-unit";
@@ -7,6 +7,7 @@ import {ManufacturerService} from "../manufacturer/manufacturer.service";
 import {BusinessUnitService} from "../business-unit/business-unit.service";
 import {RoomService} from "../room/room.service";
 import {LocationService} from "../location/location.service";
+import {AssetService} from "../asset/asset.service";
 
 declare var $: any;
 
@@ -16,9 +17,11 @@ declare var $: any;
   styleUrls: ['./asset-search.component.css']
 })
 
-export class AssetSearchComponent implements OnInit {
+export class AssetSearchComponent implements OnInit, AfterViewChecked {
 
   advancedSearchEnabled: boolean;
+  assets: Array<any>;
+
   name: string;
   id: string;
   serial: string;
@@ -42,7 +45,8 @@ export class AssetSearchComponent implements OnInit {
               private manufacturerService: ManufacturerService,
               private locationService: LocationService,
               private roomService: RoomService,
-              private businessUnitService: BusinessUnitService) {
+              private businessUnitService: BusinessUnitService,
+              private assetService: AssetService) {
   }
 
   ngOnInit() {
@@ -79,17 +83,29 @@ export class AssetSearchComponent implements OnInit {
       });
   }
 
+  ngAfterViewChecked(): void {
+    if (!$.fn.dataTable.isDataTable('#asset-table')) {
+      $('#asset-table').DataTable({
+        "order": [[0, "asc"]]
+      });
+    }
+  }
+
   search(): void {
-    if (!this.advancedSearchEnabled && this.name == "")
+    if (!this.advancedSearchEnabled && this.name.trim() == "")
       alert("Please enter some search text.");
     else {
+      $('#asset-table').dataTable().fnDestroy();
+      this.assets = undefined;
       let params = {
         id: this.id, name: this.name, serial: this.serial,
         type: this.type, status: this.status, manufacturer: this.manufacturer,
         model: this.model, partNumber: this.partNumber, description: this.description,
         location: this.location, room: this.room, owner: this.owner
       };
-      this.router.navigate(['asset-table/search'], {queryParams: params});
+      this.assetService.getAssetByQueryParams(params).subscribe(data => {
+        this.assets = data;
+      });
     }
   }
 
