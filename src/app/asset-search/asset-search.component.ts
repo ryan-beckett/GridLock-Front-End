@@ -19,6 +19,7 @@ declare var $: any;
 
 export class AssetSearchComponent implements OnInit, AfterViewChecked {
 
+  activeSpinnerId: string;
   advancedSearchEnabled: boolean;
   assets: Array<any>;
 
@@ -50,6 +51,7 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
+    this.activeSpinnerId = "spinner";
     this.advancedSearchEnabled = false;
     this.id = "";
     this.name = "";
@@ -95,6 +97,7 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
     if (!this.advancedSearchEnabled && this.name.trim() == "")
       alert("Please enter some search text.");
     else {
+      $("#"+this.activeSpinnerId).show();
       $('#asset-table').dataTable().fnDestroy();
       this.assets = undefined;
       let params = {
@@ -105,6 +108,7 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
       };
       this.assetService.getAssetByQueryParams(params).subscribe(data => {
         this.assets = data;
+        $("#"+this.activeSpinnerId).hide();
       });
     }
   }
@@ -114,8 +118,10 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
     if (this.advancedSearchEnabled) {
       this.name = "";
       $("#basic").addClass("collapse");
+      this.activeSpinnerId = "advancedSpinner";
     } else {
       $("#basic").removeClass("collapse");
+      this.activeSpinnerId = "spinner";
     }
   }
 }
