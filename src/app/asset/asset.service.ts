@@ -34,7 +34,7 @@ export class AssetService {
   }
 
   getAssetsByName(name: string): Observable<any> {
-    return this.http.get(AssetService.API + "name/" + name);
+    return this.http.get(AssetService.API + "name/" + encodeURIComponent(name));
   }
 
   getAssetByQueryParams(params: {}): Observable<any> {

@@ -70,8 +70,13 @@ import {OSConfigurationService} from "./os-configuration/os-configuration.servic
 import {NetworkDeviceService} from "./network-device/network-device.service";
 import {ContactComponent} from "./contact/contact.component";
 import {LocationComponent} from "./location/location.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {DashboardService} from "./dashboard/dashboard.service";
 
 const appRoutes: Routes = [
+  {
+    path: '', redirectTo: '/dashboard', pathMatch: 'full'
+  },
   {
     path: 'rack/:id',
     component: RackComponent
@@ -107,6 +112,10 @@ const appRoutes: Routes = [
   {
     path: 'asset-search',
     component: AssetSearchComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 ];
 
@@ -145,7 +154,8 @@ const appRoutes: Routes = [
     UserComponent,
     SiteComponent,
     ContactComponent,
-    LocationComponent
+    LocationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -161,7 +171,7 @@ const appRoutes: Routes = [
     NetworkConnectionService, NetworkDeviceService, OSConfigurationService, PatchPanelService, PermissionService,
     PortService, RackService, RackableDeviceService, RoleService, RoomService, ServerDeviceService,
     ServiceContractService, SiteService, StorageDeviceService, StorageFrameService, SupportUnitService, UserService,
-    UserProfileService
+    UserProfileService, DashboardService
   ],
   bootstrap: [AppComponent]
 })

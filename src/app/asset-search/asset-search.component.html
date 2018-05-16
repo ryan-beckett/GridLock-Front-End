@@ -6,7 +6,7 @@
       </div>
       <div class="col-3">
         <input [(ngModel)]="name" (keyup.enter)="search()" type="text" class="form-control" id="name"
-               name="name" placeholder="Asset Name">
+               name="name" placeholder="Asset Name" tooltip="Type 'server-1' in field and press Search.">
       </div>
       <div class="col-1">
         <button type="button" class="btn btn-dark" (click)="search()" id="searchBtn">Search</button>
