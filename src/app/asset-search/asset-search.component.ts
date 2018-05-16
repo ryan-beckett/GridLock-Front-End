@@ -54,7 +54,7 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
     this.activeSpinnerId = "spinner";
     this.advancedSearchEnabled = false;
     this.id = "";
-    this.name = "";
+    this.name = "serv";
     this.serial = "";
     this.type = "";
     this.status = "";
@@ -110,6 +110,7 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
         this.assets = data;
         $("#"+this.activeSpinnerId).hide();
       });
+      $("#searchBtn").removeClass("glow-button");
     }
   }
 

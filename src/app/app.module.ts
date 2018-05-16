@@ -75,7 +75,7 @@ import {DashboardService} from "./dashboard/dashboard.service";
 
 const appRoutes: Routes = [
   {
-    path: '', redirectTo: '/dashboard', pathMatch: 'full'
+    path: '', redirectTo: '/asset-search', pathMatch: 'full'
   },
   {
     path: 'rack/:id',

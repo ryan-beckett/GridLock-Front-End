@@ -6,10 +6,10 @@
       </div>
       <div class="col-3">
         <input [(ngModel)]="name" (keyup.enter)="search()" type="text" class="form-control" id="name"
-               name="name" placeholder="Asset Name" tooltip="Type 'server-1' in field and press Search.">
+               name="name" tooltip="Type 'server-1' in field and press Search.">
       </div>
       <div class="col-1">
-        <button type="button" class="btn btn-dark" (click)="search()" id="searchBtn">Search</button>
+        <button type="button" class="btn btn-dark glow-button" (click)="search()" id="searchBtn" tooltip="Press Me!">Search</button>
       </div>
       <div class="col-1">
         <i id="spinner" class="fa fa-spinner fa-spin" style="font-size:24px; color:#007bff;
