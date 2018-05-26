@@ -1,7 +1,8 @@
 import {RackableDevice} from "../rackable-device/rackable-device";
 import {GridLocation} from "../grid-location/grid-location";
+import {Asset} from "../asset/asset";
 
-export class Rack {
+export class Rack extends Asset {
   uHeight: number;
   devices: RackableDevice[];
   gridLocation: GridLocation;
