@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Asset} from "./asset";
 
 @Component({
   selector: 'app-asset',
@@ -6,7 +7,14 @@ import {Component} from '@angular/core';
   styleUrls: ['./asset.component.css']
 })
 
-export class AssetComponent {
+export class AssetComponent implements OnInit {
 
+  @Input() asset: Asset;
+
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
 
 }

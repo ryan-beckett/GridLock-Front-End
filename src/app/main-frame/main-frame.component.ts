@@ -1,4 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {MainFrame} from "./main-frame";
+import {MainFrameService} from "./main-frame.service";
+
+declare var $: any;
 
 @Component({
   selector: 'app-main-frame',
@@ -7,10 +12,28 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MainFrameComponent implements OnInit {
 
-  constructor() {
+  mainFrame: MainFrame;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private mainFrameService: MainFrameService) {
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      if (id) {
+        this.mainFrameService.getMainFrameById(id).subscribe(data => {
+          this.mainFrame = data as MainFrame;
+        });
+      }
+    });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    $('.nav-tabs').scrollingTabs({
+      enableSwiping: true
+    });
+    $('.nav-tabs a').click(function(){
+      $(".tab-content").animate({ scrollTop: 0 }, 600);
+    });
   }
 
 }

@@ -1,0 +1,43 @@
+<div role="tabpanel" class="tab-pane active" id="device">
+  <form>
+    <fieldset [disabled]="true">
+      <h2>Asset Details</h2>
+      <input hidden id="imageURL" name="imageURL" class="form-control" type="text" [(ngModel)]="asset.imageURL">
+      <label>Asset Id</label>
+      <input id="id" name="id" class="form-control" type="text" [(ngModel)]="asset.id">
+      <label>Name</label>
+      <input id="name" name="name" class="form-control" type="text" [(ngModel)]="asset.name">
+      <label>Type</label>
+      <select [(ngModel)]="asset.type" class="form-control" id="type" name="type">
+        <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t" [selected]="t === asset.type">{{t}}
+        </option>
+      </select>
+      <label>Status</label>
+      <select class="col-3" [(ngModel)]="asset.status" class="form-control" id="status" name="status">
+        <option *ngFor="let s of asset.ASSET_STATUS" [ngValue]="s" [selected]="s === asset.status">{{s}}</option>
+      </select>
+      <label>Serial</label>
+      <input id="serial" name="serial" class="form-control" type="text" [(ngModel)]="asset.serial">
+      <label>Part #</label>
+      <input id="partNumber" partNumber="partNumber" class="form-control" type="text" [(ngModel)]="asset.partNumber">
+      <label>Purchase Order #</label>
+      <input id="purchaseOrderNumber" name="purchaseOrderNumber" class="form-control" type="text"
+             [(ngModel)]="asset.purchaseOrderNumber">
+      <label>Cost ($)</label>
+      <input id="cost" name="cost" class="form-control" type="text" [(ngModel)]="asset.cost">
+      <label>Model</label>
+      <input id="model" model="model" class="form-control" value="" type="text" [(ngModel)]="asset.model">
+      <label>Description</label>
+      <textarea id="description" name="description" class="form-control" type="text" [(ngModel)]="asset.description"></textarea>
+    </fieldset>
+  </form>
+</div>
+<div role="tabpanel" class="tab-pane" id="manufacturer">
+  <app-manufacturer [manufacturer]="asset.manufacturer"></app-manufacturer>
+</div>
+<div role="tabpanel" class="tab-pane" id="location">
+  <app-location [location]="asset.room.site.location"></app-location>
+</div>
+<div role="tabpanel" class="tab-pane" id="support">
+  <app-location [location]="asset.room.site.location"></app-location>
+</div>

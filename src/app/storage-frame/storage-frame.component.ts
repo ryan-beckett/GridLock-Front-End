@@ -1,4 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {StorageFrame} from "./storage-frame";
+import {StorageFrameService} from "./storage-frame.service";
+
+declare var $: any;
 
 @Component({
   selector: 'app-storage-frame',
@@ -7,10 +12,28 @@ import {Component, OnInit} from '@angular/core';
 })
 export class StorageFrameComponent implements OnInit {
 
-  constructor() {
+  storageFrame: StorageFrame;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private storageFrameService: StorageFrameService) {
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      if (id) {
+        this.storageFrameService.getStorageFrameById(id).subscribe(data => {
+          this.storageFrame = data as StorageFrame;
+        });
+      }
+    });
   }
 
   ngOnInit() {
+    $('.nav-tabs').scrollingTabs({
+      enableSwiping: true
+    });
+    $('.nav-tabs a').click(function(){
+      $(".tab-content").animate({ scrollTop: 0 }, 600);
+    });
   }
 
 }

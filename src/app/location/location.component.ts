@@ -1,4 +1,5 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {Location} from "./location";
 
 
 @Component({
@@ -8,7 +9,7 @@ import {Component, OnInit} from "@angular/core";
 })
 export class LocationComponent implements OnInit {
 
-  location: Location;
+  @Input() location: Location;
 
   constructor() {
   }

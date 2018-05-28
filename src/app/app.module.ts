@@ -70,7 +70,7 @@ import {OSConfigurationService} from "./os-configuration/os-configuration.servic
 import {NetworkDeviceService} from "./network-device/network-device.service";
 import {ContactComponent} from "./contact/contact.component";
 import {LocationComponent} from "./location/location.component";
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardService} from "./dashboard/dashboard.service";
 
 const appRoutes: Routes = [
@@ -155,7 +155,7 @@ const appRoutes: Routes = [
     SiteComponent,
     ContactComponent,
     LocationComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

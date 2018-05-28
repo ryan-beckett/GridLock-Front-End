@@ -1,3 +1,35 @@
-<p>
-  desktop-device works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Nav tabs -->
+      <div class="card">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#device" aria-controls="device" role="tab" data-toggle="tab">Device</a>
+          </li>
+          <li role="presentation"><a href="#manufacturer" aria-controls="manufacturer" role="tab" data-toggle="tab">Manufacturer</a>
+          </li>
+          <li role="presentation"><a href="#location" aria-controls="location" role="tab" data-toggle="tab">Location</a>
+          </li>
+          <li role="presentation"><a href="#support" aria-controls="support" role="tab" data-toggle="tab">Support</a>
+          </li>
+          <li role="presentation"><a href="#hardwareConfiguration" aria-controls="support" role="tab" data-toggle="tab">Hardware
+            Configuration</a></li>
+          <li role="presentation"><a href="#networkConfiguration" aria-controls="support" role="tab" data-toggle="tab">Network
+            Configuration</a></li>
+          <li role="presentation"><a href="#osConfiguration" aria-controls="support" role="tab" data-toggle="tab">OS
+            Configuration</a></li>
+          <li role="presentation"><a href="#user" aria-controls="support" role="tab" data-toggle="tab">User</a></li>
+        </ul>
+        <div class="tab-content">
+          <app-asset [asset]="desktopDevice"></app-asset>
+          <app-hardware-configuration [hardwareConfiguration]="desktopDevice.hardwareConfiguration"></app-hardware-configuration>
+          <app-network-configuration [networkConfiguration]="desktopDevice.networkConfiguration"></app-network-configuration>
+          <app-osconfiguration [osConfiguration]="desktopDevice.osConfiguration"></app-osconfiguration>
+          <div role="tabpanel" class="tab-pane" id="user">
+            <app-contact [contact]="desktopDevice.user"></app-contact>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,25 @@
-<p>
-  manufacturer works!
-</p>
+<form>
+  <fieldset [disabled]="true">
+    <h2>Manufacturer</h2>
+    <label>Name</label>
+    <input id="manufacturerName" name="manufacturerName" class="form-control" type="text"
+           [(ngModel)]="manufacturer.name" disabled>
+    <label>Address</label>
+    <input id="manufacturerAddress" name="manufacturerAddress" class="form-control"
+           [(ngModel)]="manufacturer.location.address" type="text" disabled>
+    <label>City</label>
+    <input id="manufacturerCity" name="manufacturerCity" class="form-control" [(ngModel)]="manufacturer.location.city"
+           type="text" disabled>
+    <label>State/Province/Region</label>
+    <input id="manufacturerState" name="manufacturerState" class="form-control"
+           [(ngModel)]="manufacturer.location.state" type="text" disabled>
+    <label>Postal Code/ZIP</label>
+    <input id="manufacturerZip" name="manufacturerZip" class="form-control" [(ngModel)]="manufacturer.location.zip"
+           type="text">
+    <label>Country</label>
+    <input id="manufacturerCountry" name="manufacturerCountry" class="form-control"
+           [(ngModel)]="manufacturer.location.country" type="text" disabled>
+    <br/>
+  </fieldset>
+</form>
+<app-contact [contact]="manufacturer.contact"></app-contact>

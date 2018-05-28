@@ -1,4 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {DesktopDeviceService} from "./desktop-device.service";
+import {DesktopDevice} from "./desktop-device";
+
+declare var $: any;
 
 @Component({
   selector: 'app-desktop-device',
@@ -7,10 +12,28 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DesktopDeviceComponent implements OnInit {
 
-  constructor() {
+  desktopDevice: DesktopDevice;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private desktopDeviceService: DesktopDeviceService) {
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      if (id) {
+        this.desktopDeviceService.getDesktopDeviceById(id).subscribe(data => {
+          this.desktopDevice = data as DesktopDevice;
+        });
+      }
+    });
   }
 
   ngOnInit() {
+    $('.nav-tabs').scrollingTabs({
+      enableSwiping: true
+    });
+    $('.nav-tabs a').click(function(){
+      $(".tab-content").animate({ scrollTop: 0 }, 600);
+    });
   }
 
 }
