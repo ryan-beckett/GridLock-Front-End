@@ -1,42 +1,65 @@
 <form>
   <fieldset [disabled]="true">
     <h2>Asset Details</h2>
-    <input hidden id="imageURL" name="imageURL" class="form-control" type="text" [(ngModel)]="asset.imageURL">
-    <label>Asset Id</label>
-    <input id="id" name="id" class="form-control" type="text" [(ngModel)]="asset.id">
-    <label>Name</label>
-    <input id="name" name="name" class="form-control" type="text" [(ngModel)]="asset.name">
-    <label>Type</label>
-    <select [(ngModel)]="asset.type" class="form-control" id="type" name="type">
-      <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t" [selected]="t === asset.type">{{t}}
-      </option>
-    </select>
-    <label>Status</label>
-    <select class="col-3" [(ngModel)]="asset.status" class="form-control" id="status" name="status">
-      <option *ngFor="let s of asset.ASSET_STATUS" [ngValue]="s" [selected]="s === asset.status">{{s}}</option>
-    </select>
-    <label>Serial</label>
-    <input id="serial" name="serial" class="form-control" type="text" [(ngModel)]="asset.serial">
-    <label>Part #</label>
-    <input id="partNumber" name="partNumber" class="form-control" type="text" [(ngModel)]="asset.partNumber">
-    <label>Purchase Order #</label>
-    <input id="purchaseOrderNumber" name="purchaseOrderNumber" class="form-control" type="text"
-           [(ngModel)]="asset.purchaseOrderNumber">
-    <label>Cost ($)</label>
-    <input id="cost" name="cost" class="form-control" type="text" [(ngModel)]="asset.cost">
-    <label>Model</label>
-    <input id="model" name="model" class="form-control" value="" type="text" [(ngModel)]="asset.model">
-    <label>Description</label>
-    <textarea id="description" name="description" class="form-control" type="text"
-              [(ngModel)]="asset.description"></textarea>
+    <div class="row">
+      <div class="col-8">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Asset Id</label>
+            <input id="id" name="id" class="form-control form-control-sm" type="text" [(ngModel)]="asset.id">
+          </div>
+          <div class="col-3">
+            <label>Name</label>
+            <input id="name" name="name" class="form-control form-control-sm" type="text" [(ngModel)]="asset.name">
+          </div>
+          <div class="col-3">
+            <label>Type</label>
+            <select [(ngModel)]="asset.type" class="form-control form-control-sm" id="type" name="type">
+              <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t" [selected]="t === asset.type">{{t}}
+              </option>
+            </select>
+          </div>
+          <div class="col-3">
+            <label>Status</label>
+            <select class="col-3" [(ngModel)]="asset.status" class="form-control form-control-sm" id="status"
+                    name="status">
+              <option *ngFor="let s of asset.ASSET_STATUS" [ngValue]="s" [selected]="s === asset.status">{{s}}</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <label>Serial</label>
+            <input id="serial" name="serial" class="form-control form-control-sm" type="text"
+                   [(ngModel)]="asset.serial">
+          </div>
+          <div class="col-3">
+            <label>Part #</label>
+            <input id="partNumber" name="partNumber" class="form-control form-control-sm" type="text"
+                   [(ngModel)]="asset.partNumber">
+          </div>
+          <div class="col-3">
+            <label>Purchase Order #</label>
+            <input id="purchaseOrderNumber" name="purchaseOrderNumber" class="form-control form-control-sm" type="text"
+                   [(ngModel)]="asset.purchaseOrderNumber">
+          </div>
+          <div class="col-3">
+            <label>Cost ($)</label>
+            <input id="cost" name="cost" class="form-control form-control-sm" type="text" [(ngModel)]="asset.cost">
+          </div>
+          <div class="col-3">
+            <label>Model</label>
+            <input id="model" name="model" class="form-control form-control-sm" value="" type="text"
+                   [(ngModel)]="asset.model">
+          </div>
+          <div class="col-6">
+            <label>Description</label>
+            <textarea id="description" name="description" class="form-control form-control-sm" type="text"
+                      [(ngModel)]="asset.description"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <img src="http://via.placeholder.com/350x150" class="img-fluid" alt="Device Image">
+      </div>
+    </div>
   </fieldset>
 </form>
-<div role="tabpanel" class="tab-pane" id="manufacturer">
-  <app-manufacturer [manufacturer]="asset.manufacturer"></app-manufacturer>
-</div>
-<div role="tabpanel" class="tab-pane" id="room">
-  <app-room [room]="asset.room"></app-room>
-</div>
-<div role="tabpanel" class="tab-pane" id="owner">
-  <app-business-unit [businessUnit]="asset.owner"></app-business-unit>
-</div>

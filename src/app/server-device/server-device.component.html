@@ -1,38 +1,71 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#asset" aria-controls="device" role="tab" data-toggle="tab">Asset</a>
-          </li>
-          <li role="presentation"><a href="#manufacturer" aria-controls="manufacturer" role="tab" data-toggle="tab">Manufacturer</a>
-          </li>
-          <li role="presentation"><a href="#room" aria-controls="location" role="tab" data-toggle="tab">Location</a>
-          </li>
-          <li role="presentation"><a href="#owner" aria-controls="support" role="tab" data-toggle="tab">Owner</a>
-          </li>
-          <li role="presentation"><a href="#hardwareConfiguration" aria-controls="support" role="tab" data-toggle="tab">Hardware
-            Configuration</a></li>
-          <li role="presentation"><a href="#networkConfiguration" aria-controls="support" role="tab" data-toggle="tab">Network
-            Configuration</a></li>
-          <li role="presentation"><a href="#osConfiguration" aria-controls="support" role="tab" data-toggle="tab">OS
-            Configuration</a></li>
-        </ul>
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="asset">
-            <app-asset [asset]="serverDevice"></app-asset>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="hardwareConfiguration">
-            <app-hardware-configuration
-              [hardwareConfiguration]="serverDevice.hardwareConfiguration"></app-hardware-configuration>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="networkConfiguration">
-            <app-network-configuration
-              [networkConfiguration]="serverDevice.networkConfiguration"></app-network-configuration>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="osConfiguration">
-            <app-osconfiguration [osConfiguration]="serverDevice.osConfiguration"></app-osconfiguration>
-          </div>
+    <div class="">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="assetTab" href="#asset" aria-controls="asset" role="tab" data-toggle="tab"
+             aria-selected="true">Asset</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="manufacturerTab" href="#manufacturer" aria-controls="manufacturer" role="tab"
+             data-toggle="tab" aria-selected="false">Manufacturer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="roomTab" href="#room" aria-controls="room" role="tab" data-toggle="tab"
+             aria-selected="false">Location</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ownerTab" href="#owner" aria-controls="owner" role="tab" data-toggle="tab"
+             aria-selected="false">Owner</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="hardwareConfigurationTab" href="#hardwareConfiguration"
+             aria-controls="hardwareConfiguration" role="tab" data-toggle="tab" aria-selected="false">Hardware
+            Configuration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="networkConfigurationTab" href="#networkConfiguration"
+             aria-controls="networkConfiguration" role="tab" data-toggle="tab" aria-selected="false">Network
+            Configuration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="osConfigurationTab" href="#osConfiguration" aria-controls="osConfiguration"
+             role="tab" data-toggle="tab" aria-selected="false">OS
+            Configuration</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="tabContent">
+        <div role="tabpanel" class="tab-pane fade show active" id="asset" aria-labelledby="assetTab">
+          <br/>
+          <app-asset [asset]="serverDevice"></app-asset>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="manufacturer" aria-labelledby="manufacturerTab">
+          <br/>
+          <app-manufacturer [manufacturer]="serverDevice.manufacturer"></app-manufacturer>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="room" aria-labelledby="roomTab">
+          <br/>
+          <app-room [room]="serverDevice.room"></app-room>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="owner" aria-labelledby="ownerTab">
+          <br/>
+          <app-business-unit [businessUnit]="serverDevice.owner"></app-business-unit>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="hardwareConfiguration"
+             aria-labelledby="hardwareConfigurationTab">
+          <br/>
+          <app-hardware-configuration
+            [hardwareConfiguration]="serverDevice.hardwareConfiguration"></app-hardware-configuration>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="networkConfiguration"
+             aria-labelledby="networkConfigurationTab">
+          <br/>
+          <app-network-configuration
+            [networkConfiguration]="serverDevice.networkConfiguration"></app-network-configuration>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="osConfiguration" aria-labelledby="osConfigurationTab">
+          <br/>
+          <app-osconfiguration [osConfiguration]="serverDevice.osConfiguration"></app-osconfiguration>
         </div>
       </div>
     </div>
