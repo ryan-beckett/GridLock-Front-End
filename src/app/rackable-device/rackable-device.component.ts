@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {RackableDevice} from "./rackable-device";
 
 @Component({
   selector: 'app-rackable-device',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./rackable-device.component.css']
 })
 export class RackableDeviceComponent implements OnInit {
+
+  @Input() rackableDevice: RackableDevice;
 
   constructor() {
   }

@@ -1,3 +1,13 @@
-<p>
-  configuration works!
-</p>
+<form>
+  <fieldset [disabled]="true">
+    <label>Type</label>
+    <input id="configurationType" name="configurationType" class="form-control" type="text" [(ngModel)]="configuration.configurationType">
+    <label>Description</label>
+    <input id="configurationDescription" name="configurationDescription" class="form-control" type="text" [(ngModel)]="configuration.description">
+    <label>Notes</label>
+    <textarea id="configurationNotes" name="configurationNotes" class="form-control" type="text"
+              [(ngModel)]="configuration.notes"></textarea>
+  </fieldset>
+</form>
+<app-support-unit [supportUnit]="configuration.supportUnit"></app-support-unit>
+<app-service-contract [serviceContract]="configuration.serviceContract"></app-service-contract>

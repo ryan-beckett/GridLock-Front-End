@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ConfigurableDevice} from "./configurable-device";
 
 @Component({
   selector: 'app-configurable-device',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./configurable-device.component.css']
 })
 export class ConfigurableDeviceComponent implements OnInit {
+
+  @Input() configurableDevice: ConfigurableDevice;
 
   constructor() {
   }

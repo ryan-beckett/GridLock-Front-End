@@ -1,3 +1,15 @@
-<p>
-  service-contract works!
-</p>
+<form>
+  <h2>Service Contract</h2>
+  <fieldset [disabled]="true">
+    <label>Type</label>
+    <input id="serviceContractType" name="serviceContractType" class="form-control" type="text"
+           [(ngModel)]="serviceContract.type">
+    <label>Start Date</label>
+    <input id="serviceContractStartDate" name="serviceContractStartDate" class="form-control" type="text"
+           [(ngModel)]="serviceContract.startDate">
+    <label>End Date</label>
+    <input id="serviceContractEndDate" name="serviceContractEndDate" class="form-control" type="text"
+           [(ngModel)]="serviceContract.endDate">
+  </fieldset>
+</form>
+<app-manufacturer [manufacturer]="serviceContract.contractor"></app-manufacturer>

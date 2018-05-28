@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <!-- Nav tabs -->
+    <div class="col-md-12">
       <div class="card">
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#device" aria-controls="device" role="tab" data-toggle="tab">Device</a>
+          <li role="presentation" class="active"><a href="#asset" aria-controls="device" role="tab" data-toggle="tab">Asset</a>
           </li>
           <li role="presentation"><a href="#manufacturer" aria-controls="manufacturer" role="tab" data-toggle="tab">Manufacturer</a>
           </li>
-          <li role="presentation"><a href="#location" aria-controls="location" role="tab" data-toggle="tab">Location</a>
+          <li role="presentation"><a href="#room" aria-controls="location" role="tab" data-toggle="tab">Location</a>
           </li>
-          <li role="presentation"><a href="#support" aria-controls="support" role="tab" data-toggle="tab">Support</a>
+          <li role="presentation"><a href="#owner" aria-controls="support" role="tab" data-toggle="tab">Owner</a>
           </li>
           <li role="presentation"><a href="#hardwareConfiguration" aria-controls="support" role="tab" data-toggle="tab">Hardware
             Configuration</a></li>
@@ -21,10 +20,20 @@
           <li role="presentation"><a href="#user" aria-controls="support" role="tab" data-toggle="tab">User</a></li>
         </ul>
         <div class="tab-content">
-          <app-asset [asset]="desktopDevice"></app-asset>
-          <app-hardware-configuration [hardwareConfiguration]="desktopDevice.hardwareConfiguration"></app-hardware-configuration>
-          <app-network-configuration [networkConfiguration]="desktopDevice.networkConfiguration"></app-network-configuration>
-          <app-osconfiguration [osConfiguration]="desktopDevice.osConfiguration"></app-osconfiguration>
+          <div role="tabpanel" class="tab-pane active" id="asset">
+            <app-asset [asset]="desktopDevice"></app-asset>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="hardwareConfiguration">
+            <app-hardware-configuration
+              [hardwareConfiguration]="desktopDevice.hardwareConfiguration"></app-hardware-configuration>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="networkConfiguration">
+            <app-network-configuration
+              [networkConfiguration]="desktopDevice.networkConfiguration"></app-network-configuration>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="osConfiguration">
+            <app-osconfiguration [osConfiguration]="desktopDevice.osConfiguration"></app-osconfiguration>
+          </div>
           <div role="tabpanel" class="tab-pane" id="user">
             <app-contact [contact]="desktopDevice.user"></app-contact>
           </div>

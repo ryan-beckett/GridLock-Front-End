@@ -1,6 +1,40 @@
-<div class="tab-content">
-  <app-asset></app-asset>
-  <app-hardware-configuration></app-hardware-configuration>
-  <app-network-configuration></app-network-configuration>
-  <app-osconfiguration></app-osconfiguration>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#asset" aria-controls="device" role="tab" data-toggle="tab">Asset</a>
+          </li>
+          <li role="presentation"><a href="#manufacturer" aria-controls="manufacturer" role="tab" data-toggle="tab">Manufacturer</a>
+          </li>
+          <li role="presentation"><a href="#room" aria-controls="location" role="tab" data-toggle="tab">Location</a>
+          </li>
+          <li role="presentation"><a href="#owner" aria-controls="support" role="tab" data-toggle="tab">Owner</a>
+          </li>
+          <li role="presentation"><a href="#hardwareConfiguration" aria-controls="support" role="tab" data-toggle="tab">Hardware
+            Configuration</a></li>
+          <li role="presentation"><a href="#networkConfiguration" aria-controls="support" role="tab" data-toggle="tab">Network
+            Configuration</a></li>
+          <li role="presentation"><a href="#osConfiguration" aria-controls="support" role="tab" data-toggle="tab">OS
+            Configuration</a></li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="asset">
+            <app-asset [asset]="storageDevice"></app-asset>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="hardwareConfiguration">
+            <app-hardware-configuration
+              [hardwareConfiguration]="storageDevice.hardwareConfiguration"></app-hardware-configuration>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="networkConfiguration">
+            <app-network-configuration
+              [networkConfiguration]="storageDevice.networkConfiguration"></app-network-configuration>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="osConfiguration">
+            <app-osconfiguration [osConfiguration]="storageDevice.osConfiguration"></app-osconfiguration>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,9 @@
-<p>
-  business works!
-</p>
+<form>
+  <h2>Business</h2>
+  <fieldset>
+    <label>Name</label>
+    <input id="businessName" name="businessName" class="form-control" type="text" [(ngModel)]="business.name">
+  </fieldset>
+</form>
+<app-location [location]="business.location"></app-location>
+<app-contact [contact]="business.contact"></app-contact>

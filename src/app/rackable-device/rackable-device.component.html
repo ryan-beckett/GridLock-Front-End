@@ -1,3 +1,15 @@
-<p>
-  rackable-device works!
-</p>
+<app-grid-location [gridLocation]="rackableDevice.gridLocation"></app-grid-location>
+<form>
+  <h2>Rack Details</h2>
+  <fieldset [disabled]="true">
+    <label>Zone</label>
+    <input id="rackableDeviceZone" name="rackableDeviceZone" class="form-control" type="text"
+           [(ngModel)]="rackableDevice.zone">
+    <label>U Location</label>
+    <input id="rackableDeviceULocation" name="rackableDeviceULocation" class="form-control" type="text"
+           [(ngModel)]="rackableDevice.uLocation">
+    <label>U Height</label>
+    <input id="rackableDeviceUHeight" name="rackableDeviceUHeight" class="form-control" type="text"
+           [(ngModel)]="rackableDevice.uHeight">
+  </fieldset>
+</form>

@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ServiceContract} from "./service-contract";
 
 @Component({
   selector: 'app-service-contract',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./service-contract.component.css']
 })
 export class ServiceContractComponent implements OnInit {
+
+  @Input() serviceContract: ServiceContract;
 
   constructor() {
   }

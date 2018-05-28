@@ -1,3 +1,9 @@
-<p>
-  business-unit works!
-</p>
+<form>
+  <h2>Business Unit</h2>
+  <fieldset [disabled]="true">
+    <label>Name</label>
+    <input id="businessUnitName" partNumber="businessUnitName" class="form-control" type="text" [(ngModel)]="businessUnit.name">
+  </fieldset>
+</form>
+<app-business [business]="businessUnit.business"></app-business>
+<app-contact [contact]="businessUnit.contact"></app-contact>
