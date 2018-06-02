@@ -15,14 +15,15 @@
           <div class="col-3">
             <label>Type</label>
             <select [(ngModel)]="asset.type" class="form-control form-control-sm" id="type" name="type">
-              <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t" [selected]="t === asset.type">{{t}}
-              </option>
+              <option selected [ngValue]="asset.type">{{asset.type}}</option>
+              <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t">{{t}}</option>
             </select>
           </div>
           <div class="col-3">
             <label>Status</label>
             <select class="col-3" [(ngModel)]="asset.status" class="form-control form-control-sm" id="status"
                     name="status">
+              <option selected [ngValue]="asset.status">{{asset.status}}</option>
               <option *ngFor="let s of asset.ASSET_STATUS" [ngValue]="s" [selected]="s === asset.status">{{s}}</option>
             </select>
           </div>
