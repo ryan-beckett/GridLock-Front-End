@@ -12,7 +12,15 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="roomTab" href="#room" aria-controls="room" role="tab" data-toggle="tab"
-             aria-selected="false">Location</a>
+             aria-selected="false">Room</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="gridTab" href="#grid" aria-controls="grid" role="tab" data-toggle="tab"
+             aria-selected="false">Grid</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="rackTab" href="#rack" aria-controls="rack" role="tab" data-toggle="tab"
+             aria-selected="false">Rack</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="ownerTab" href="#owner" aria-controls="owner" role="tab" data-toggle="tab"
@@ -46,6 +54,10 @@
         <div role="tabpanel" class="tab-pane fade" id="room" aria-labelledby="roomTab">
           <br/>
           <app-room [room]="rack.room"></app-room>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="grid" aria-labelledby="gridTab">
+          <br/>
+          <app-grid-location [gridLocation]="rack.gridLocation"></app-grid-location>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="owner" aria-labelledby="ownerTab">
           <br/>

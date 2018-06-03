@@ -1,9 +1,21 @@
 <form>
-  <h2>Grid Location</h2>
   <fieldset disabled="true">
-    <label>X-Coordinate</label>
-    <input id="gridLocationX" name="gridLocationX" class="form-control" type="text" [(ngModel)]="gridLocation.x">
-    <label>Y-Coordinate</label>
-    <input id="gridLocationY" name="gridLocationY" class="form-control" type="text" [(ngModel)]="gridLocation.y">
+    <h2>Grid Location</h2>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>X-Coordinate</label>
+            <input id="gridLocationX" name="gridLocationX" class="form-control" type="text"
+                   [(ngModel)]="gridLocation.x">
+          </div>
+          <div class="col-3">
+            <label>Y-Coordinate</label>
+            <input id="gridLocationY" name="gridLocationY" class="form-control" type="text"
+                   [(ngModel)]="gridLocation.y">
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>

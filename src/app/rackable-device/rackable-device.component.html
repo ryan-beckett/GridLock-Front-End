@@ -1,15 +1,26 @@
-<app-grid-location [gridLocation]="rackableDevice.gridLocation"></app-grid-location>
 <form>
-  <h2>Rack Details</h2>
-  <fieldset [disabled]="true">
-    <label>Zone</label>
-    <input id="rackableDeviceZone" name="rackableDeviceZone" class="form-control" type="text"
-           [(ngModel)]="rackableDevice.zone">
-    <label>U Location</label>
-    <input id="rackableDeviceULocation" name="rackableDeviceULocation" class="form-control" type="text"
-           [(ngModel)]="rackableDevice.uLocation">
-    <label>U Height</label>
-    <input id="rackableDeviceUHeight" name="rackableDeviceUHeight" class="form-control" type="text"
-           [(ngModel)]="rackableDevice.uHeight">
+  <fieldset disabled="true">
+    <h2>Rack Details</h2>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Zone</label>
+            <input id="rackableDeviceZone" name="rackableDeviceZone" class="form-control" type="text"
+                   [(ngModel)]="rackableDevice.zone">
+          </div>
+          <div class="col-3">
+            <label>U Location</label>
+            <input id="rackableDeviceULocation" name="rackableDeviceULocation" class="form-control" type="text"
+                   [(ngModel)]="rackableDevice.uLocation">
+          </div>
+          <div class="col-3">
+            <label>U Height</label>
+            <input id="rackableDeviceUHeight" name="rackableDeviceUHeight" class="form-control" type="text"
+                   [(ngModel)]="rackableDevice.uHeight">
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
