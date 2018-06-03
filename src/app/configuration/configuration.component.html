@@ -1,13 +1,31 @@
 <form>
   <fieldset [disabled]="true">
-    <label>Type</label>
-    <input id="configurationType" name="configurationType" class="form-control" type="text" [(ngModel)]="configuration.configurationType">
-    <label>Description</label>
-    <input id="configurationDescription" name="configurationDescription" class="form-control" type="text" [(ngModel)]="configuration.description">
-    <label>Notes</label>
-    <textarea id="configurationNotes" name="configurationNotes" class="form-control" type="text"
-              [(ngModel)]="configuration.notes"></textarea>
+    <h2>Configuration</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Type</label>
+            <input id="configurationType" name="configurationType" class="form-control" type="text"
+                   [(ngModel)]="configuration.configurationType">
+          </div>
+          <div class="col-3">
+            <label>Description</label>
+            <input id="configurationDescription" name="configurationDescription" class="form-control" type="text"
+                   [(ngModel)]="configuration.description">
+          </div>
+          <div class="col-3">
+            <label>Notes</label>
+            <textarea id="configurationNotes" name="configurationNotes" class="form-control" type="text"
+                      [(ngModel)]="configuration.notes"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
+<hr/>
 <app-support-unit [supportUnit]="configuration.supportUnit"></app-support-unit>
+<hr/>
 <app-service-contract [serviceContract]="configuration.serviceContract"></app-service-contract>
+<hr/>

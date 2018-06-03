@@ -1,15 +1,38 @@
 <form>
-  <h2>Contact Details</h2>
   <fieldset [disabled]="true">
-    <label>First Name</label>
-    <input id="contactFirstName" name="contactFirstName" class="form-control" type="text" [(ngModel)]="contact.firstName">
-    <label>Last Name</label>
-    <input id="contactLastName" name="contactLastName" class="form-control" type="text" [(ngModel)]="contact.lastName">
-    <label>Job Title</label>
-    <input id="contactJobTitle" name="contactJobTitle" class="form-control" type="text" [(ngModel)]="contact.jobTitle">
-    <label>Email</label>
-    <input id="contactEmail" name="contactEmail" class="form-control" value="" type="text" [(ngModel)]="contact.email">
-    <label>Phone</label>
-    <input id="contactPhone" name="contactPhone" class="form-control" type="text" [(ngModel)]="contact.phone">
+    <h2>Contact Details</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>First Name</label>
+            <input id="contactFirstName" name="contactFirstName" class="form-control" type="text"
+                   [(ngModel)]="contact.firstName">
+          </div>
+          <div class="col-3">
+            <label>Last Name</label>
+            <input id="contactLastName" name="contactLastName" class="form-control" type="text"
+                   [(ngModel)]="contact.lastName">
+          </div>
+          <div class="col-3">
+            <label>Job Title</label>
+            <input id="contactJobTitle" name="contactJobTitle" class="form-control" type="text"
+                   [(ngModel)]="contact.jobTitle">
+          </div>
+          <div class="col-3">
+            <label>Email</label>
+            <input id="contactEmail" name="contactEmail" class="form-control" value="" type="text"
+                   [(ngModel)]="contact.email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Phone</label>
+            <input id="contactPhone" name="contactPhone" class="form-control" type="text" [(ngModel)]="contact.phone">
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
+<hr/>

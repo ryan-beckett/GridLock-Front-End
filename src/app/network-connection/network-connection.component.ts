@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {NetworkConnection} from "./network-connection";
 
 @Component({
   selector: 'app-network-connection',
@@ -6,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./network-connection.component.css']
 })
 export class NetworkConnectionComponent implements OnInit {
+
+  @Input() networkConnection: NetworkConnection;
 
   constructor() {
   }

@@ -1,9 +1,19 @@
 <form>
-  <h2>Business</h2>
   <fieldset [disabled]="true">
-    <label>Name</label>
-    <input id="businessName" name="businessName" class="form-control" type="text" [(ngModel)]="business.name">
+    <h2>Business</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Name</label>
+            <input id="businessName" name="businessName" class="form-control" type="text" [(ngModel)]="business.name">
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
+<hr/>
 <app-location [location]="business.location"></app-location>
+<hr/>
 <app-contact [contact]="business.contact"></app-contact>

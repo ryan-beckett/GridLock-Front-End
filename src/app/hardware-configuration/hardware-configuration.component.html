@@ -1,7 +1,50 @@
-<h2>Hardware Configuration</h2>
 <app-configuration [configuration]="hardwareConfiguration"></app-configuration>
 <form>
   <fieldset [disabled]="true">
-
+    <h2>Hardware Configuration</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>CPU Manufacturer</label>
+            <input id="hardwareConfigurationCpuManufacturer" name="hardwareConfigurationCpuManufacturer"
+                   class="form-control" type="text" [(ngModel)]="hardwareConfiguration.cpuManufacturer">
+          </div>
+          <div class="col-3">
+            <label>CPU Model</label>
+            <input id="hardwareConfigurationCpuModel" name="hardwareConfigurationCpuModel" class="form-control"
+                   type="text" [(ngModel)]="hardwareConfiguration.cpuModel">
+          </div>
+          <div class="col-3">
+            <label>CPU Speed (GHZ)</label>
+            <input id="hardwareConfigurationCpuSpeedInGhz" name="hardwareConfigurationCpuSpeedInGhz"
+                   class="form-control" type="text" [(ngModel)]="hardwareConfiguration.cpuSpeedInGhz">
+          </div>
+          <div class="col-3">
+            <label># of CPUs</label>
+            <input id="hardwareConfigurationNumberOfCpus" name="hardwareConfigurationNumberOfCpus" class="form-control"
+                   type="text" [(ngModel)]="hardwareConfiguration.numberOfCpus">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-3">
+            <label>RAM Manufacturer</label>
+            <input id="hardwareConfigurationRamManufacturer" name="hardwareConfigurationRamManufacturer" class="form-control"
+                   type="text" [(ngModel)]="hardwareConfiguration.ramManufacturer">
+          </div>
+          <div class="col-3">
+            <label>RAM Model</label>
+            <input id="hardwareConfigurationRamModel" name="hardwareConfigurationRamModel" class="form-control"
+                   type="text" [(ngModel)]="hardwareConfiguration.ramModel">
+          </div>
+          <div class="col-3">
+            <label>RAM Size (GB)</label>
+            <input id="hardwareConfigurationRamSizeInGB" name="hardwareConfigurationRamSizeInGB" class="form-control"
+                   type="text" [(ngModel)]="hardwareConfiguration.ramSizeInGB">
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
+<hr/>

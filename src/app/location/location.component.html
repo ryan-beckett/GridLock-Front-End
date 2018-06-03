@@ -1,17 +1,41 @@
- <form>
-   <h2>Location</h2>
-    <fieldset [disabled]="true">
-      <label>Name</label>
-      <input id="locationName" name="locationName" class="form-control" type="text" [(ngModel)]="location.name">
-      <label>Address</label>
-      <input id="locationAddress" name="locationAddress" class="form-control" type="text" [(ngModel)]="location.address">
-      <label>City</label>
-      <input id="locationCity" name="locationCity" class="form-control" type="text" [(ngModel)]="location.city">
-      <label>State</label>
-      <input id="locationState" name="locationState" class="form-control" type="text" [(ngModel)]="location.state">
-      <label>Zip</label>
-      <input id="locationZip" name="locationZip" class="form-control" type="text" [(ngModel)]="location.zip">
-      <label>Country</label>
-      <input id="locationCountry" name="locationCountry" class="form-control" type="text" [(ngModel)]="location.country">
-    </fieldset>
-  </form>
+<form>
+  <fieldset [disabled]="true">
+    <h2>Location</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Name</label>
+            <input id="locationName" name="locationName" class="form-control" type="text" [(ngModel)]="location.name">
+          </div>
+          <div class="col-3">
+            <label>Address</label>
+            <input id="locationAddress" name="locationAddress" class="form-control" type="text"
+                   [(ngModel)]="location.address">
+          </div>
+          <div class="col-3">
+            <label>City</label>
+            <input id="locationCity" name="locationCity" class="form-control" type="text" [(ngModel)]="location.city">
+          </div>
+          <div class="col-3">
+            <label>State</label>
+            <input id="locationState" name="locationState" class="form-control" type="text"
+                   [(ngModel)]="location.state">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Zip</label>
+            <input id="locationZip" name="locationZip" class="form-control" type="text" [(ngModel)]="location.zip">
+          </div>
+          <div class="col-3">
+            <label>Country</label>
+            <input id="locationCountry" name="locationCountry" class="form-control" type="text"
+                   [(ngModel)]="location.country">
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<hr/>

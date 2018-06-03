@@ -1,8 +1,17 @@
 <form>
-  <h2>Room</h2>
   <fieldset disabled="true">
-    <label>Name</label>
-    <input id="roomName" name="roomName" class="form-control" type="text" [(ngModel)]="room.name">
+    <h2>Room</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Name</label>
+            <input id="roomName" name="roomName" class="form-control" type="text" [(ngModel)]="room.name">
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
+<hr/>
 <app-site [site]="room.site"></app-site>

@@ -1,7 +1,29 @@
-<h2>OS Configuration</h2>
 <app-configuration [configuration]="osConfiguration"></app-configuration>
 <form>
   <fieldset [disabled]="true">
-
+    <h2>OS Configuration</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Developer</label>
+            <input id="osConfigurationDeveloper" name="osConfigurationDeveloper" class="form-control" type="text" [(ngModel)]="osConfiguration.developer">
+          </div>
+          <div class="col-3">
+            <label>Version</label>
+            <input id="osConfigurationVersion" name="osConfigurationVersion" class="form-control" type="text" [(ngModel)]="osConfiguration.version">
+          </div>
+          <div class="col-3">
+            <label>Release</label>
+            <input id="osConfigurationRelease" name="osConfigurationRelease" class="form-control" type="text" [(ngModel)]="osConfiguration.release">
+          </div>
+          <div class="col-3">
+            <label>License</label>
+            <input id="osConfigurationLicense" name="osConfigurationLicense" class="form-control" type="text" [(ngModel)]="osConfiguration.license">
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
+<hr/>

@@ -1,7 +1,29 @@
-<h2>Network Configuration</h2>
 <app-configuration [configuration]="networkConfiguration"></app-configuration>
 <form>
   <fieldset [disabled]="true">
-
+    <h2>Network Configuration</h2>
+    <div class="row">
+      <div class="col-10">
+        <div class="form-group row">
+          <div class="col-3">
+            <label>Hostname</label>
+            <input id="networkConfigurationHostname" name="networkConfigurationHostname" class="form-control"
+                   type="text" [(ngModel)]="networkConfiguration.hostname">
+          </div>
+          <div class="col-3">
+            <label>Workgroup</label>
+            <input id="networkConfigurationWorkGroup" name="networkConfigurationWorkGroup" class="form-control"
+                   type="text" [(ngModel)]="networkConfiguration.workGroup">
+          </div>
+        </div>
+        <div class="form-group row indent-outer">
+          <h5>Network Connections</h5>
+          <div class="indent-inner" *ngFor="let n of networkConfiguration.networkConnections">
+            <app-network-connection [networkConnection]="n"></app-network-connection>
+          </div>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
+<hr/>

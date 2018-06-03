@@ -2,65 +2,70 @@
   <fieldset [disabled]="true">
     <h2>Asset Details</h2>
     <div class="row">
-      <div class="col-8">
+      <div class="col-10">
         <div class="form-group row">
           <div class="col-3">
             <label>Asset Id</label>
-            <input id="id" name="id" class="form-control form-control-sm" type="text" [(ngModel)]="asset.id">
+            <input id="assetId" name="assetId" class="form-control" type="text" [(ngModel)]="asset.id">
           </div>
           <div class="col-3">
             <label>Name</label>
-            <input id="name" name="name" class="form-control form-control-sm" type="text" [(ngModel)]="asset.name">
+            <input id="assetName" name="assetName" class="form-control" type="text" [(ngModel)]="asset.name">
           </div>
           <div class="col-3">
             <label>Type</label>
-            <select [(ngModel)]="asset.type" class="form-control form-control-sm" id="type" name="type">
+            <select [(ngModel)]="asset.type" class="form-control" id="assetType" name="assetType">
               <option selected [ngValue]="asset.type">{{asset.type}}</option>
               <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t">{{t}}</option>
             </select>
           </div>
           <div class="col-3">
             <label>Status</label>
-            <select class="col-3" [(ngModel)]="asset.status" class="form-control form-control-sm" id="status"
-                    name="status">
+            <select class="col-3" [(ngModel)]="asset.status" class="form-control" id="assetStatus"
+                    name="assetStatus">
               <option selected [ngValue]="asset.status">{{asset.status}}</option>
               <option *ngFor="let s of asset.ASSET_STATUS" [ngValue]="s" [selected]="s === asset.status">{{s}}</option>
             </select>
           </div>
+        </div>
+        <div class="form-group row">
           <div class="col-3">
             <label>Serial</label>
-            <input id="serial" name="serial" class="form-control form-control-sm" type="text"
+            <input id="assetSerial" name="assetSerial" class="form-control" type="text"
                    [(ngModel)]="asset.serial">
           </div>
           <div class="col-3">
             <label>Part #</label>
-            <input id="partNumber" name="partNumber" class="form-control form-control-sm" type="text"
+            <input id="assetPartNumber" name="assetPartNumber" class="form-control" type="text"
                    [(ngModel)]="asset.partNumber">
           </div>
           <div class="col-3">
             <label>Purchase Order #</label>
-            <input id="purchaseOrderNumber" name="purchaseOrderNumber" class="form-control form-control-sm" type="text"
+            <input id="assetPurchaseOrderNumber" name="assetPurchaseOrderNumber" class="form-control" type="text"
                    [(ngModel)]="asset.purchaseOrderNumber">
           </div>
           <div class="col-3">
             <label>Cost ($)</label>
-            <input id="cost" name="cost" class="form-control form-control-sm" type="text" [(ngModel)]="asset.cost">
+            <input id="assetCost" name="assetCost" class="form-control" type="text" [(ngModel)]="asset.cost">
           </div>
+        </div>
+        <div class="form-group row">
           <div class="col-3">
             <label>Model</label>
-            <input id="model" name="model" class="form-control form-control-sm" value="" type="text"
+            <input id="assetModel" name="assetModel" class="form-control" value="" type="text"
                    [(ngModel)]="asset.model">
           </div>
           <div class="col-6">
             <label>Description</label>
-            <textarea id="description" name="description" class="form-control form-control-sm" type="text"
+            <textarea id="assetDescription" name="assetDescription" class="form-control" type="text"
                       [(ngModel)]="asset.description"></textarea>
           </div>
         </div>
       </div>
-      <div class="col-4">
-        <img [src]="asset.imageURL" class="img-fluid" alt="Device Image">
+      <div class="col-2">
+        <img id="assetImageURL" name="assetImageURL" [src]="asset.imageURL" class="img-fluid" alt="Device Image">
       </div>
     </div>
   </fieldset>
 </form>
+<hr/>
