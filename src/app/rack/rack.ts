@@ -3,7 +3,7 @@ import {GridLocation} from "../grid-location/grid-location";
 import {Asset} from "../asset/asset";
 
 export class Rack extends Asset {
-  uHeight: number;
+  uheight: number;
   devices: RackableDevice[];
   gridLocation: GridLocation;
 }

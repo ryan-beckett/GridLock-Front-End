@@ -44,7 +44,7 @@
                     <div class="col-3">
                       <label>U Height</label>
                       <input id="rackUHeight" name="rackUHeight" class="form-control" type="text"
-                             [(ngModel)]="rack.uHeight">
+                             [(ngModel)]="rack.uheight">
                     </div>
                   </div>
                 </div>
@@ -84,8 +84,8 @@
                   <td><a href [routerLink]="['/'+d.type.toLowerCase().split('_').join('-'), d.id]">{{ d.name
                     }}</a></td>
                   <td>{{d.type}}</td>
-                  <td>{{d.uLocation}}</td>
-                  <td>{{d.uHeight}}</td>
+                  <td>{{d.ulocation}}</td>
+                  <td>{{d.uheight}}</td>
                 </tr>
               </table>
             </fieldset>

@@ -37,6 +37,10 @@
              role="tab" data-toggle="tab" aria-selected="false">OS
             Configuration</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="userTab" href="#user" aria-controls="user"
+             role="tab" data-toggle="tab" aria-selected="false">User</a>
+        </li>
       </ul>
       <div class="tab-content" id="tabContent">
         <div role="tabpanel" class="tab-pane fade show active" id="asset" aria-labelledby="assetTab">
@@ -101,7 +105,7 @@
           <div *ngIf="desktopDevice.user == null">
             <a href="#">Add New User</a>
           </div>
-          <app-contact *ngIf="desktopDevice.status != null"
+          <app-contact *ngIf="desktopDevice.user != null"
                        [contact]="desktopDevice.user"></app-contact>
         </div>
       </div>

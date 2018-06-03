@@ -4,8 +4,8 @@ import {ConfigurableDevice} from "../configurable-device/configurable-device";
 
 export class RackableDevice extends ConfigurableDevice {
   rack: Rack;
-  uLocation: number;
-  uHeight: number;
+  ulocation: number;
+  uheight: number;
   zone: string;
   gridLocation: GridLocation;
 }
