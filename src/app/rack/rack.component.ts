@@ -3,8 +3,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {RackService} from "./rack.service";
 import {Rack} from "./rack";
 
-declare var $: any;
-
 @Component({
   selector: 'app-rack',
   templateUrl: './rack.component.html',
@@ -28,11 +26,5 @@ export class RackComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.nav-tabs').scrollingTabs({
-      enableSwiping: true
-    });
-    $('.nav-tabs a').click(function(){
-      $(".tab-content").animate({ scrollTop: 0 }, 600);
-    });
   }
 }

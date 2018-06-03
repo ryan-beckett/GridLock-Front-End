@@ -3,8 +3,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ServerDevice} from "./server-device";
 import {ServerDeviceService} from "./server-device.service";
 
-declare var $: any;
-
 @Component({
   selector: 'app-server-device',
   templateUrl: './server-device.component.html',
@@ -28,12 +26,6 @@ export class ServerDeviceComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.nav-tabs').scrollingTabs({
-      enableSwiping: true
-    });
-    $('.nav-tabs a').click(function(){
-      $(".tab-content").animate({ scrollTop: 0 }, 600);
-    });
   }
 
 }

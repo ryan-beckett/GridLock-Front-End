@@ -3,8 +3,6 @@ import {PatchPanel} from "./patch-panel";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PatchPanelService} from "./patch-panel.service";
 
-declare var $: any;
-
 @Component({
   selector: 'app-patch-panel',
   templateUrl: './patch-panel.component.html',
@@ -28,12 +26,6 @@ export class PatchPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.nav-tabs').scrollingTabs({
-      enableSwiping: true
-    });
-    $('.nav-tabs a').click(function(){
-      $(".tab-content").animate({ scrollTop: 0 }, 600);
-    });
   }
 
 }

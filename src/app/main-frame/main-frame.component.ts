@@ -3,8 +3,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MainFrame} from "./main-frame";
 import {MainFrameService} from "./main-frame.service";
 
-declare var $: any;
-
 @Component({
   selector: 'app-main-frame',
   templateUrl: './main-frame.component.html',
@@ -28,12 +26,6 @@ export class MainFrameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    $('.nav-tabs').scrollingTabs({
-      enableSwiping: true
-    });
-    $('.nav-tabs a').click(function(){
-      $(".tab-content").animate({ scrollTop: 0 }, 600);
-    });
   }
 
 }

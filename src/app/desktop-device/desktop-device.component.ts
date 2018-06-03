@@ -3,8 +3,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DesktopDeviceService} from "./desktop-device.service";
 import {DesktopDevice} from "./desktop-device";
 
-declare var $: any;
-
 @Component({
   selector: 'app-desktop-device',
   templateUrl: './desktop-device.component.html',
@@ -28,12 +26,6 @@ export class DesktopDeviceComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.nav-tabs').scrollingTabs({
-      enableSwiping: true
-    });
-    $('.nav-tabs a').click(function(){
-      $(".tab-content").animate({ scrollTop: 0 }, 600);
-    });
   }
 
 }

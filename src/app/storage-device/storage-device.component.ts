@@ -1,11 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MainFrame} from "../main-frame/main-frame";
 import {ActivatedRoute, Router} from "@angular/router";
-import {MainFrameService} from "../main-frame/main-frame.service";
 import {StorageDevice} from "./storage-device";
 import {StorageDeviceService} from "./storage-device.service";
-
-declare var $: any;
 
 @Component({
   selector: 'app-storage-device',
@@ -30,12 +26,6 @@ export class StorageDeviceComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.nav-tabs').scrollingTabs({
-      enableSwiping: true
-    });
-    $('.nav-tabs a').click(function () {
-      $(".tab-content").animate({scrollTop: 0}, 600);
-    });
   }
 
 }
