@@ -69,26 +69,25 @@
           <form>
             <fieldset [disabled]="true">
               <h5>Racked Devices</h5>
-              <div class="row">
-                <div class="col-10">
-                  <div class="form-group row">
-                    <table id="rackDevices" name="rackDevices">
-                      <thead>
-                        <tr>
-                          <td>Device Name</td>
-                          <td>Device Type</td>
-                          <td>U Location</td>
-                        </tr>
-                      </thead>
-                      <tr *ngFor="let d of rack.devices">
-                        <td><a href [routerLink]="['/'+d.type.toLowerCase().split('_').join('-'), d.id]">{{ d.name }}</a></td>
-                        <td>{{d.type}}</td>
-                        <td>{{d.uLocation}}</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              <br/>
+              <table id="rackDevices" name="rackDevices" *ngIf="rack.devices != null && rack.devices.length > 0"
+                     class="table table-striped table-bordered table-hover table-sm">
+                <thead class="thead-dark">
+                <tr>
+                  <td>Device Name</td>
+                  <td>Device Type</td>
+                  <td>U Location</td>
+                  <td>U Height</td>
+                </tr>
+                </thead>
+                <tr *ngFor="let d of rack.devices">
+                  <td><a href [routerLink]="['/'+d.type.toLowerCase().split('_').join('-'), d.id]">{{ d.name
+                    }}</a></td>
+                  <td>{{d.type}}</td>
+                  <td>{{d.uLocation}}</td>
+                  <td>{{d.uHeight}}</td>
+                </tr>
+              </table>
             </fieldset>
           </form>
         </div>

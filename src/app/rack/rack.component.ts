@@ -1,14 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewChecked, Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RackService} from "./rack.service";
 import {Rack} from "./rack";
+
+declare var $: any;
 
 @Component({
   selector: 'app-rack',
   templateUrl: './rack.component.html',
   styleUrls: ['./rack.component.css']
 })
-export class RackComponent implements OnInit {
+export class RackComponent implements OnInit, AfterViewChecked {
 
   rack: Rack;
 
@@ -25,6 +27,14 @@ export class RackComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(){
+  }
+
+  ngAfterViewChecked() {
+    if (!$.fn.dataTable.isDataTable('#rackDevices')) {
+      $('#rackDevices').DataTable({
+        "order": [[2, "desc"]]
+      });
+    }
   }
 }

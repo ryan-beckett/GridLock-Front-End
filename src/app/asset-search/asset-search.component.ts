@@ -86,8 +86,8 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    if (!$.fn.dataTable.isDataTable('#asset-table')) {
-      $('#asset-table').DataTable({
+    if (!$.fn.dataTable.isDataTable('#assetSearchTable')) {
+      $('#assetSearchTable').DataTable({
         "order": [[0, "asc"]]
       });
     }
@@ -98,7 +98,7 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
       alert("Please enter some search text.");
     else {
       $("#"+this.activeSpinnerId).show();
-      $('#asset-table').dataTable().fnDestroy();
+      $('#assetSearchTable').dataTable().fnDestroy();
       this.assets = undefined;
       let params = {
         id: this.id, name: this.name, serial: this.serial,
