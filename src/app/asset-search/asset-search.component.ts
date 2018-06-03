@@ -54,7 +54,7 @@ export class AssetSearchComponent implements OnInit, AfterViewChecked {
     this.activeSpinnerId = "spinner";
     this.advancedSearchEnabled = false;
     this.id = "";
-    this.name = "server";
+    this.name = "main-frame";
     this.serial = "";
     this.type = "";
     this.status = "";

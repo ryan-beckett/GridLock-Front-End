@@ -3,6 +3,7 @@ import {SupportUnit} from "../support-unit/support-unit";
 import {ServiceContract} from "../service-contract/service-contract";
 
 export class Configuration {
+  CONFIGURATION_TYPES: string[] = ["HARDWARE", "OS", "NETWORK"];
   id: number;
   configurableDevice: ConfigurableDevice;
   configurationType: string;

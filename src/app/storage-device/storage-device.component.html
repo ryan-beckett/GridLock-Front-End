@@ -1,5 +1,9 @@
 <div class="container-fluid">
   <div class="row">
+    <a href="/asset-search">Back to Asset Search</a>
+  </div>
+  <br/>
+  <div class="row">
     <div class="">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -46,6 +50,21 @@
         <div role="tabpanel" class="tab-pane fade show active" id="asset" aria-labelledby="assetTab">
           <br/>
           <app-asset [asset]="storageDevice"></app-asset>
+          <form>
+            <fieldset [disabled]="true">
+              <h5>Asset Sub-Details</h5>
+              <div class="row">
+                <div class="col-10">
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label>Subtype</label>
+                      <input id="storageDeviceSubType" name="storageDeviceSubType" class="form-control" type="text" [(ngModel)]="storageDevice.subType">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="manufacturer" aria-labelledby="manufacturerTab">
           <br/>
@@ -70,21 +89,30 @@
         <div role="tabpanel" class="tab-pane fade" id="hardwareConfiguration"
              aria-labelledby="hardwareConfigurationTab">
           <br/>
-          <app-hardware-configuration
-            [hardwareConfiguration]="storageDevice.hardwareConfiguration"></app-hardware-configuration>
+          <div *ngIf="storageDevice.hardwareConfiguration == null">
+            <a href="#">Add New Hardware Configuration</a>
+          </div>
+          <app-hardware-configuration *ngIf="storageDevice.hardwareConfiguration != null"
+                                      [hardwareConfiguration]="storageDevice.hardwareConfiguration"></app-hardware-configuration>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="networkConfiguration"
              aria-labelledby="networkConfigurationTab">
           <br/>
-          <app-network-configuration
-            [networkConfiguration]="storageDevice.networkConfiguration"></app-network-configuration>
+          <div *ngIf="storageDevice.networkConfiguration == null">
+            <a href="#">Add New Network Configuration</a>
+          </div>
+          <app-network-configuration *ngIf="storageDevice.networkConfiguration != null"
+                                     [networkConfiguration]="storageDevice.networkConfiguration"></app-network-configuration>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="osConfiguration" aria-labelledby="osConfigurationTab">
           <br/>
-          <app-osconfiguration [osConfiguration]="storageDevice.osConfiguration"></app-osconfiguration>
+          <div *ngIf="storageDevice.osConfiguration == null">
+            <a href="#">Add New OS Configuration</a>
+          </div>
+          <app-osconfiguration *ngIf="storageDevice.osConfiguration != null"
+                               [osConfiguration]="storageDevice.osConfiguration"></app-osconfiguration>
         </div>
       </div>
     </div>
   </div>
 </div>
-<a href="https://gridlock-frontend.herokuapp.com/asset-search">Back</a>

@@ -1,18 +1,21 @@
 <form>
   <fieldset [disabled]="true">
-    <h2>Configuration</h2>
+    <h5>Configuration</h5>
     <div class="row">
       <div class="col-12">
         <div class="form-group row">
           <div class="col-3">
             <label>Type</label>
-            <input id="configurationType" name="configurationType" class="form-control" type="text"
-                   [(ngModel)]="configuration.configurationType">
+            <select [(ngModel)]="configuration.configurationType" class="form-control" id="configurationType"
+                    name="configurationType">
+              <option selected [ngValue]="configuration.configurationType">{{configuration.configurationType}}</option>
+              <option *ngFor="let t of configuration.CONFIGURATION_TYPES" [ngValue]="t">{{t}}</option>
+            </select>
           </div>
           <div class="col-3">
             <label>Description</label>
             <input id="configurationDescription" name="configurationDescription" class="form-control" type="text"
-                   [(ngModel)]="configuration.description">
+                   [(ngModel)]="configuration.description" value="">
           </div>
           <div class="col-6">
             <label>Notes</label>

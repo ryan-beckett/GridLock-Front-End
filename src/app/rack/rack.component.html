@@ -1,5 +1,9 @@
 <div class="container-fluid">
   <div class="row">
+    <a href="/asset-search">Back to Asset Search</a>
+  </div>
+  <br/>
+  <div class="row">
     <div class="">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -26,26 +30,27 @@
           <a class="nav-link" id="ownerTab" href="#owner" aria-controls="owner" role="tab" data-toggle="tab"
              aria-selected="false">Owner</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="hardwareConfigurationTab" href="#hardwareConfiguration"
-             aria-controls="hardwareConfiguration" role="tab" data-toggle="tab" aria-selected="false">Hardware
-            Configuration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="networkConfigurationTab" href="#networkConfiguration"
-             aria-controls="networkConfiguration" role="tab" data-toggle="tab" aria-selected="false">Network
-            Configuration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="osConfigurationTab" href="#osConfiguration" aria-controls="osConfiguration"
-             role="tab" data-toggle="tab" aria-selected="false">OS
-            Configuration</a>
-        </li>
       </ul>
       <div class="tab-content" id="tabContent">
         <div role="tabpanel" class="tab-pane fade show active" id="asset" aria-labelledby="assetTab">
           <br/>
           <app-asset [asset]="rack"></app-asset>
+          <form>
+            <fieldset [disabled]="true">
+              <h5>Asset Sub-Details</h5>
+              <div class="row">
+                <div class="col-10">
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label>U Height</label>
+                      <input id="rackUHeight" name="rackUHeight" class="form-control" type="text"
+                             [(ngModel)]="rack.uHeight">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="manufacturer" aria-labelledby="manufacturerTab">
           <br/>
@@ -59,6 +64,34 @@
           <br/>
           <app-grid-location [gridLocation]="rack.gridLocation"></app-grid-location>
         </div>
+        <div role="tabpanel" class="tab-pane fade" id="rack" aria-labelledby="rackTab">
+          <br/>
+          <form>
+            <fieldset [disabled]="true">
+              <h5>Racked Devices</h5>
+              <div class="row">
+                <div class="col-10">
+                  <div class="form-group row">
+                    <table id="rackDevices" name="rackDevices">
+                      <thead>
+                        <tr>
+                          <td>Device Name</td>
+                          <td>Device Type</td>
+                          <td>U Location</td>
+                        </tr>
+                      </thead>
+                      <tr *ngFor="let d of rack.devices">
+                        <td><a href [routerLink]="['/'+d.type.toLowerCase().split('_').join('-'), d.id]">{{ d.name }}</a></td>
+                        <td>{{d.type}}</td>
+                        <td>{{d.uLocation}}</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
         <div role="tabpanel" class="tab-pane fade" id="owner" aria-labelledby="ownerTab">
           <br/>
           <app-business-unit [businessUnit]="rack.owner"></app-business-unit>
@@ -67,4 +100,3 @@
     </div>
   </div>
 </div>
-<a href="https://gridlock-frontend.herokuapp.com/asset-search">Back</a>

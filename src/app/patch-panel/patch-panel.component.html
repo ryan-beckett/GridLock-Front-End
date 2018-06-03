@@ -1,5 +1,9 @@
 <div class="container-fluid">
   <div class="row">
+    <a href="/asset-search">Back to Asset Search</a>
+  </div>
+  <br/>
+  <div class="row">
     <div class="">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -27,18 +31,8 @@
              aria-selected="false">Owner</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="hardwareConfigurationTab" href="#hardwareConfiguration"
-             aria-controls="hardwareConfiguration" role="tab" data-toggle="tab" aria-selected="false">Hardware
-            Configuration</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" id="networkConfigurationTab" href="#networkConfiguration"
              aria-controls="networkConfiguration" role="tab" data-toggle="tab" aria-selected="false">Network
-            Configuration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="osConfigurationTab" href="#osConfiguration" aria-controls="osConfiguration"
-             role="tab" data-toggle="tab" aria-selected="false">OS
             Configuration</a>
         </li>
       </ul>
@@ -46,6 +40,28 @@
         <div role="tabpanel" class="tab-pane fade show active" id="asset" aria-labelledby="assetTab">
           <br/>
           <app-asset [asset]="patchPanel"></app-asset>
+          <form>
+            <fieldset [disabled]="true">
+              <h5>Asset Sub-Details</h5>
+              <div class="row">
+                <div class="col-10">
+                  <div class="form-group row">
+                    <div class="col-3">
+                      <label>Total # of Ports</label>
+                      <input id="patchPanelTotalNumberOfPorts" name="patchPanelTotalNumberOfPorts" class="form-control" type="text" [(ngModel)]="patchPanel.totalNumberOfPorts">
+                    </div>
+                    <div class="col-3">
+                      <label>Port Type</label>
+                      <select [(ngModel)]="patchPanel.portType" class="form-control" id="patchPanelPortType" name="patchPanelPortType">
+                        <option selected [ngValue]="patchPanel.portType">{{patchPanel.portType}}</option>
+                        <option *ngFor="let t of patchPanel.PATCH_PANEL_PORT_TYPES" [ngValue]="t">{{t}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="manufacturer" aria-labelledby="manufacturerTab">
           <br/>
@@ -67,24 +83,16 @@
           <br/>
           <app-business-unit [businessUnit]="patchPanel.owner"></app-business-unit>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="hardwareConfiguration"
-             aria-labelledby="hardwareConfigurationTab">
-          <br/>
-          <app-hardware-configuration
-            [hardwareConfiguration]="patchPanel.hardwareConfiguration"></app-hardware-configuration>
-        </div>
         <div role="tabpanel" class="tab-pane fade" id="networkConfiguration"
              aria-labelledby="networkConfigurationTab">
           <br/>
-          <app-network-configuration
-            [networkConfiguration]="patchPanel.networkConfiguration"></app-network-configuration>
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="osConfiguration" aria-labelledby="osConfigurationTab">
-          <br/>
-          <app-osconfiguration [osConfiguration]="patchPanel.osConfiguration"></app-osconfiguration>
+          <div *ngIf="patchPanel.networkConfiguration == null">
+            <a href="#">Add New Network Configuration</a>
+          </div>
+          <app-network-configuration *ngIf="patchPanel.networkConfiguration != null"
+                                     [networkConfiguration]="patchPanel.networkConfiguration"></app-network-configuration>
         </div>
       </div>
     </div>
   </div>
 </div>
-<a href="https://gridlock-frontend.herokuapp.com/asset-search">Back</a>
