@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {StorageFrame} from "./storage-frame";
 import {StorageFrameService} from "./storage-frame.service";
 
+declare var $: any;
+
 @Component({
   selector: 'app-storage-frame',
   templateUrl: './storage-frame.component.html',
@@ -26,6 +28,12 @@ export class StorageFrameComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  enableEditing() : void {
+    $("fieldset:disabled").each(function() {
+      $(this).find("a:hidden").removeAttr("hidden");
+    });
   }
 
 }

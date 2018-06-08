@@ -37,4 +37,10 @@ export class RackComponent implements OnInit, AfterViewChecked {
       });
     }
   }
+
+  enableEditing() : void {
+    $("fieldset:disabled").each(function() {
+      $(this).find("a:hidden").removeAttr("hidden");
+    });
+  }
 }

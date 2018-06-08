@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DesktopDeviceService} from "./desktop-device.service";
 import {DesktopDevice} from "./desktop-device";
 
+declare var $: any;
+
 @Component({
   selector: 'app-desktop-device',
   templateUrl: './desktop-device.component.html',
@@ -26,6 +28,12 @@ export class DesktopDeviceComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  enableEditing() : void {
+    $("fieldset:disabled").each(function() {
+      $(this).find("a:hidden").removeAttr("hidden");
+    });
   }
 
 }

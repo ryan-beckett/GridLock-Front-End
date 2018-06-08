@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {StorageDevice} from "./storage-device";
 import {StorageDeviceService} from "./storage-device.service";
 
+declare var $: any;
+
 @Component({
   selector: 'app-storage-device',
   templateUrl: './storage-device.component.html',
@@ -26,6 +28,12 @@ export class StorageDeviceComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  enableEditing() : void {
+    $("fieldset:disabled").each(function() {
+      $(this).find("a:hidden").removeAttr("hidden");
+    });
   }
 
 }

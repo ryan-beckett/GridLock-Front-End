@@ -1,7 +1,17 @@
 <app-configuration [configuration]="hardwareConfiguration"></app-configuration>
 <form>
-  <fieldset [disabled]="true">
-    <h5>Hardware Configuration</h5>
+  <fieldset id="hardwareConfigurationFieldset" [disabled]="true">
+    <div class="row">
+      <div>
+        <h5>Hardware Configuration</h5>
+      </div>
+      <div>
+        &nbsp;&nbsp;<a id="hardwareConfigurationEditHref" href="" (click)="edit($event)" hidden>(Edit)</a>
+      </div>
+      <div>
+        &nbsp;&nbsp;<button hidden id="hardwareConfigurationSaveBtn" type="button" class="btn btn-primary btn-sm" (click)="save()">Save</button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <div class="form-group row">

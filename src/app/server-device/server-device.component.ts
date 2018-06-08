@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ServerDevice} from "./server-device";
 import {ServerDeviceService} from "./server-device.service";
 
+declare var $: any;
+
 @Component({
   selector: 'app-server-device',
   templateUrl: './server-device.component.html',
@@ -26,6 +28,12 @@ export class ServerDeviceComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  enableEditing() : void {
+    $("fieldset:disabled").each(function() {
+      $(this).find("a:hidden").removeAttr("hidden");
+    });
   }
 
 }

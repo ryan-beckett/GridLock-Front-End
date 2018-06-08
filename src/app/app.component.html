@@ -18,6 +18,15 @@
 </nav>
 <div class="container-fluid">
   <br/>
+  <div class="row">
+    &nbsp;&nbsp;&nbsp;
+    <div hidden id="statusMessageDiv" name="statusMessageDiv" class="alert alert-success alert-dismissible fade show" role="alert">
+      <p id="statusMessage" name="statusMessage"></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
   <router-outlet></router-outlet>
   <br/>
   <br/>

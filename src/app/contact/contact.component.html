@@ -1,6 +1,16 @@
 <form>
-  <fieldset [disabled]="true">
-    <h5>Contact Details</h5>
+  <fieldset id="contactFieldset" [disabled]="true">
+    <div class="row">
+      <div>
+        <h5>Contact Details</h5>
+      </div>
+      <div>
+        &nbsp;&nbsp;<a id="contactEditHref" href="" (click)="edit($event)" hidden>(Edit)</a>
+      </div>
+      <div>
+        &nbsp;&nbsp;<button hidden id="contactSaveBtn" type="button" class="btn btn-primary btn-sm" (click)="save()">Save</button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <div class="form-group row">

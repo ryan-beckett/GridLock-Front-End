@@ -4,6 +4,6 @@ import {Location} from "../location/location";
 export class Manufacturer {
   id: number;
   name: string;
-  location: Location
+  location: Location;
   contact: Contact;
 }

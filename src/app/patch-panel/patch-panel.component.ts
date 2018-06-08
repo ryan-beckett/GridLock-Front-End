@@ -3,6 +3,8 @@ import {PatchPanel} from "./patch-panel";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PatchPanelService} from "./patch-panel.service";
 
+declare var $: any;
+
 @Component({
   selector: 'app-patch-panel',
   templateUrl: './patch-panel.component.html',
@@ -26,6 +28,12 @@ export class PatchPanelComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  enableEditing() : void {
+    $("fieldset:disabled").each(function() {
+      $(this).find("a:hidden").removeAttr("hidden");
+    });
   }
 
 }

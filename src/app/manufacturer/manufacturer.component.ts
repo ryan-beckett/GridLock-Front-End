@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Manufacturer} from "./manufacturer";
 
+declare var $: any;
+
 @Component({
   selector: 'app-manufacturer',
   templateUrl: './manufacturer.component.html',
@@ -14,6 +16,21 @@ export class ManufacturerComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  edit(event) {
+    $("#manufacturerFieldset").prop('disabled', false);
+    $("#manufacturerSaveBtn").prop("hidden", false);
+		return false;
+  }
+
+  save() {
+    $("#manufacturerFieldset").prop('disabled', true);
+    $("#manufacturerEditHref").prop("hidden", true);
+    $("#manufacturerSaveBtn").prop("hidden", true);
+    //Update logic here
+    $("#statusMessage").text("Update success!");
+		$("#statusMessageDiv").prop("hidden", false);
   }
 
 }

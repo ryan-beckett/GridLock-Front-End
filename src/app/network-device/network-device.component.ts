@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NetworkDeviceService} from "./network-device.service";
 import {NetworkDevice} from "./network-device";
 
+declare var $: any;
+
 @Component({
   selector: 'app-network-device',
   templateUrl: './network-device.component.html',
@@ -26,6 +28,12 @@ export class NetworkDeviceComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  enableEditing() : void {
+    $("fieldset:disabled").each(function() {
+      $(this).find("a:hidden").removeAttr("hidden");
+    });
   }
 
 }

@@ -1,6 +1,16 @@
 <form>
-  <fieldset [disabled]="true">
-    <h5>Support Unit Details</h5>
+  <fieldset id="supportUnitFieldset" [disabled]="true">
+    <div class="row">
+      <div>
+        <h5>Support Unit</h5>
+      </div>
+      <div>
+        &nbsp;&nbsp;<a id="supportUnitEditHref" href="" (click)="edit($event)" hidden>(Edit)</a>
+      </div>
+      <div>
+        &nbsp;&nbsp;<button hidden id="supportUnitSaveBtn" type="button" class="btn btn-primary btn-sm" (click)="save()">Save</button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12">
         <div class="form-group row">
