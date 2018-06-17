@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {Location} from "./location";
+import {LocationService} from "./location.service";
 
 declare var $: any;
 
@@ -12,24 +13,33 @@ export class LocationComponent implements OnInit {
 
   @Input() location: Location;
 
-  constructor() {
+  constructor(private locationService: LocationService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#locationFieldset").prop('disabled', false);
-    $("#locationSaveBtn").prop("hidden", false);
+    $("#locationUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#locationFieldset").prop('disabled', true);
-    $("#locationEditHref").prop("hidden", true);
-    $("#locationSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#locationUpdateBtn").prop("hidden", true);
+    this.locationService.updateLocation(this.location.id + "", this.location)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 }

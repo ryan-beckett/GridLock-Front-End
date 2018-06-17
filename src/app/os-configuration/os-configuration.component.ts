@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OSConfiguration} from "./os-configuration";
+import {OSConfigurationService} from "./os-configuration.service";
 
 declare var $: any;
 
@@ -12,25 +13,34 @@ export class OSConfigurationComponent implements OnInit {
 
   @Input() osConfiguration: OSConfiguration;
 
-  constructor() {
+  constructor(private osConfigurationService: OSConfigurationService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#osConfigurationFieldset").prop('disabled', false);
-    $("#osConfigurationSaveBtn").prop("hidden", false);
+    $("#osConfigurationUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#osConfigurationFieldset").prop('disabled', true);
-    $("#osConfigurationEditHref").prop("hidden", true);
-    $("#osConfigurationSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#osConfigurationUpdateBtn").prop("hidden", true);
+    this.osConfigurationService.updateOSConfiguration(this.osConfiguration.id + "", this.osConfiguration)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 
 }

@@ -22,11 +22,19 @@ export class AssetService {
   }
 
   createAsset(asset: Asset): Observable<any> {
-    return this.http.post(AssetService.API, JSON.stringify(asset));
+    return this.http.post(AssetService.API, JSON.stringify(asset), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateAsset(id: string, asset: Asset): Observable<any> {
-    return this.http.put(AssetService.API + "id/" + id, JSON.stringify(asset));
+    return this.http.put(AssetService.API + "id/" + id, JSON.stringify(asset), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteAsset(id: string): Observable<any> {

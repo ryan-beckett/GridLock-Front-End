@@ -20,11 +20,19 @@ export class HardwareConfigurationService {
   }
 
   createHardwareConfiguration(hardwareConfiguration: HardwareConfiguration): Observable<any> {
-    return this.http.post(HardwareConfigurationService.API, JSON.stringify(hardwareConfiguration));
+    return this.http.post(HardwareConfigurationService.API, JSON.stringify(hardwareConfiguration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateHardwareConfiguration(id: string, hardwareConfiguration: HardwareConfiguration): Observable<any> {
-    return this.http.put(HardwareConfigurationService.API + "id/" + id, JSON.stringify(hardwareConfiguration));
+    return this.http.put(HardwareConfigurationService.API + "id/" + id, JSON.stringify(hardwareConfiguration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteHardwareConfiguration(id: string): Observable<any> {

@@ -20,11 +20,19 @@ export class StorageDeviceService {
   }
 
   createStorageDevice(storageDevice: StorageDevice): Observable<any> {
-    return this.http.post(StorageDeviceService.API, JSON.stringify(storageDevice));
+    return this.http.post(StorageDeviceService.API, JSON.stringify(storageDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateStorageDevice(id: string, storageDevice: StorageDevice): Observable<any> {
-    return this.http.put(StorageDeviceService.API + "id/" + id, JSON.stringify(storageDevice));
+    return this.http.put(StorageDeviceService.API + "id/" + id, JSON.stringify(storageDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteStorageDevice(id: string): Observable<any> {

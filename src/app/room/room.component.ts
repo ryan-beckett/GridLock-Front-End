@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Room} from "./room";
+import {RoomService} from "./room.service";
 
 declare var $: any;
 
@@ -12,25 +13,34 @@ export class RoomComponent implements OnInit {
 
   @Input() room: Room;
 
-  constructor() {
+  constructor(private roomService: RoomService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#roomFieldset").prop('disabled', false);
-    $("#roomSaveBtn").prop("hidden", false);
+    $("#roomUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#roomFieldset").prop('disabled', true);
-    $("#roomEditHref").prop("hidden", true);
-    $("#roomSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#roomUpdateBtn").prop("hidden", true);
+    this.roomService.updateRoom(this.room.id + "", this.room)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 
 }

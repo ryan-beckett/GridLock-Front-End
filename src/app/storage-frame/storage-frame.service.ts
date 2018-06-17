@@ -20,11 +20,19 @@ export class StorageFrameService {
   }
 
   createStorageFrame(storageFrame: StorageFrame): Observable<any> {
-    return this.http.post(StorageFrameService.API, JSON.stringify(storageFrame));
+    return this.http.post(StorageFrameService.API, JSON.stringify(storageFrame), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateStorageFrame(id: string, storageFrame: StorageFrame): Observable<any> {
-    return this.http.put(StorageFrameService.API + "id/" + id, JSON.stringify(storageFrame));
+    return this.http.put(StorageFrameService.API + "id/" + id, JSON.stringify(storageFrame), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteStorageFrame(id: string): Observable<any> {

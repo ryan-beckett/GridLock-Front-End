@@ -20,11 +20,19 @@ export class ConfigurationService {
   }
 
   createConfiguration(configuration: Configuration): Observable<any> {
-    return this.http.post(ConfigurationService.API, JSON.stringify(configuration));
+    return this.http.post(ConfigurationService.API, JSON.stringify(configuration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateConfiguration(id: string, configuration: Configuration): Observable<any> {
-    return this.http.put(ConfigurationService.API + "id/" + id, JSON.stringify(configuration));
+    return this.http.put(ConfigurationService.API + "id/" + id, JSON.stringify(configuration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteConfiguration(id: string): Observable<any> {

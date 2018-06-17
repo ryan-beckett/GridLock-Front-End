@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HardwareConfiguration} from "./hardware-configuration";
+import {HardwareConfigurationService} from "./hardware-configuration.service";
 
 declare var $: any;
 
@@ -12,25 +13,34 @@ export class HardwareConfigurationComponent implements OnInit {
 
   @Input() hardwareConfiguration: HardwareConfiguration;
 
-  constructor() {
+  constructor(private hardwareConfigurationService: HardwareConfigurationService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#hardwareConfigurationFieldset").prop('disabled', false);
-    $("#hardwareConfigurationSaveBtn").prop("hidden", false);
+    $("#hardwareConfigurationUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#hardwareConfigurationFieldset").prop('disabled', true);
-    $("#hardwareConfigurationEditHref").prop("hidden", true);
-    $("#hardwareConfigurationSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#hardwareConfigurationUpdateBtn").prop("hidden", true);
+    this.hardwareConfigurationService.updateHardwareConfiguration(this.hardwareConfiguration.id + "", this.hardwareConfiguration)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 
 }

@@ -20,11 +20,19 @@ export class SupportUnitService {
   }
 
   createSupportUnit(supportUnit: SupportUnit): Observable<any> {
-    return this.http.post(SupportUnitService.API, JSON.stringify(supportUnit));
+    return this.http.post(SupportUnitService.API, JSON.stringify(supportUnit), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateSupportUnit(id: string, supportUnit: SupportUnit): Observable<any> {
-    return this.http.put(SupportUnitService.API + "id/" + id, JSON.stringify(supportUnit));
+    return this.http.put(SupportUnitService.API + "id/" + id, JSON.stringify(supportUnit), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteSupportUnit(id: string): Observable<any> {

@@ -20,11 +20,19 @@ export class RoomService {
   }
 
   createRoom(room: Room): Observable<any> {
-    return this.http.post(RoomService.API, JSON.stringify(room));
+    return this.http.post(RoomService.API, JSON.stringify(room), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateRoom(id: string, room: Room): Observable<any> {
-    return this.http.put(RoomService.API + "id/" + id, JSON.stringify(room));
+    return this.http.put(RoomService.API + "id/" + id, JSON.stringify(room), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteRoom(id: string): Observable<any> {

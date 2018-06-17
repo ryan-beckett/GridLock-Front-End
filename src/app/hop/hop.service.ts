@@ -20,11 +20,19 @@ export class HopService {
   }
 
   createHop(hop: Hop): Observable<any> {
-    return this.http.post(HopService.API, JSON.stringify(hop));
+    return this.http.post(HopService.API, JSON.stringify(hop), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateHop(id: string, hop: Hop): Observable<any> {
-    return this.http.put(HopService.API + "id/" + id, JSON.stringify(hop));
+    return this.http.put(HopService.API + "id/" + id, JSON.stringify(hop), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteHop(id: string): Observable<any> {

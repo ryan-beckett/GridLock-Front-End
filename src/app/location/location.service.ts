@@ -20,11 +20,19 @@ export class LocationService {
   }
 
   createLocation(location: Location): Observable<any> {
-    return this.http.post(LocationService.API, JSON.stringify(location));
+    return this.http.post(LocationService.API, JSON.stringify(location), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateLocation(id: string, location: Location): Observable<any> {
-    return this.http.put(LocationService.API + "id/" + id, JSON.stringify(location));
+    return this.http.put(LocationService.API + "id/" + id, JSON.stringify(location), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteLocation(id: string): Observable<any> {

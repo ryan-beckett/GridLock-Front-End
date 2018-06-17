@@ -20,11 +20,19 @@ export class NetworkConnectionService {
   }
 
   createNetworkConnection(networkConnection: NetworkConnection): Observable<any> {
-    return this.http.post(NetworkConnectionService.API, JSON.stringify(networkConnection));
+    return this.http.post(NetworkConnectionService.API, JSON.stringify(networkConnection), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateNetworkConnection(id: string, networkConnection: NetworkConnection): Observable<any> {
-    return this.http.put(NetworkConnectionService.API + "id/" + id, JSON.stringify(networkConnection));
+    return this.http.put(NetworkConnectionService.API + "id/" + id, JSON.stringify(networkConnection), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteNetworkConnection(id: string): Observable<any> {

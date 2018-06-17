@@ -20,11 +20,19 @@ export class MainFrameService {
   }
 
   createMainFrame(mainFrame: MainFrame): Observable<any> {
-    return this.http.post(MainFrameService.API, JSON.stringify(mainFrame));
+    return this.http.post(MainFrameService.API, JSON.stringify(mainFrame), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateMainFrame(id: string, mainFrame: MainFrame): Observable<any> {
-    return this.http.put(MainFrameService.API + "id/" + id, JSON.stringify(mainFrame));
+    return this.http.put(MainFrameService.API + "id/" + id, JSON.stringify(mainFrame), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteMainFrame(id: string): Observable<any> {

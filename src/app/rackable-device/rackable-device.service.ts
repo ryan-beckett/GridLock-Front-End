@@ -20,11 +20,19 @@ export class RackableDeviceService {
   }
 
   createRackableDevice(rackableDevice: RackableDevice): Observable<any> {
-    return this.http.post(RackableDeviceService.API, JSON.stringify(rackableDevice));
+    return this.http.post(RackableDeviceService.API, JSON.stringify(rackableDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateRackableDevice(id: string, rackableDevice: RackableDevice): Observable<any> {
-    return this.http.put(RackableDeviceService.API + "id/" + id, JSON.stringify(rackableDevice));
+    return this.http.put(RackableDeviceService.API + "id/" + id, JSON.stringify(rackableDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteRackableDevice(id: string): Observable<any> {

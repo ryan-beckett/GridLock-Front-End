@@ -20,11 +20,19 @@ export class NetworkDeviceService {
   }
 
   createNetworkDevice(networkDevice: NetworkDevice): Observable<any> {
-    return this.http.post(NetworkDeviceService.API, JSON.stringify(networkDevice));
+    return this.http.post(NetworkDeviceService.API, JSON.stringify(networkDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateNetworkDevice(id: string, networkDevice: NetworkDevice): Observable<any> {
-    return this.http.put(NetworkDeviceService.API + "id/" + id, JSON.stringify(networkDevice));
+    return this.http.put(NetworkDeviceService.API + "id/" + id, JSON.stringify(networkDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteNetworkDevice(id: string): Observable<any> {

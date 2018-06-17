@@ -20,11 +20,19 @@ export class ManufacturerService {
   }
 
   createManufacturer(manufacturer: Manufacturer): Observable<any> {
-    return this.http.post(ManufacturerService.API, JSON.stringify(manufacturer));
+    return this.http.post(ManufacturerService.API, JSON.stringify(manufacturer), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateManufacturer(id: string, manufacturer: Manufacturer): Observable<any> {
-    return this.http.put(ManufacturerService.API + "id/" + id, JSON.stringify(manufacturer));
+    return this.http.put(ManufacturerService.API + "id/" + id, JSON.stringify(manufacturer), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteManufacturer(id: string): Observable<any> {

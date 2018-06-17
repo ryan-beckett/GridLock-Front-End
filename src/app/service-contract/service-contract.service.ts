@@ -20,11 +20,19 @@ export class ServiceContractService {
   }
 
   createServiceContract(serviceContract: ServiceContract): Observable<any> {
-    return this.http.post(ServiceContractService.API, JSON.stringify(serviceContract));
+    return this.http.post(ServiceContractService.API, JSON.stringify(serviceContract), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateServiceContract(id: string, serviceContract: ServiceContract): Observable<any> {
-    return this.http.put(ServiceContractService.API + "id/" + id, JSON.stringify(serviceContract));
+    return this.http.put(ServiceContractService.API + "id/" + id, JSON.stringify(serviceContract), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteServiceContract(id: string): Observable<any> {

@@ -20,11 +20,19 @@ export class PermissionService {
   }
 
   createPermission(permission: Permission): Observable<any> {
-    return this.http.post(PermissionService.API, JSON.stringify(permission));
+    return this.http.post(PermissionService.API, JSON.stringify(permission), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updatePermission(id: string, permission: Permission): Observable<any> {
-    return this.http.put(PermissionService.API + "id/" + id, JSON.stringify(permission));
+    return this.http.put(PermissionService.API + "id/" + id, JSON.stringify(permission), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deletePermission(id: string): Observable<any> {

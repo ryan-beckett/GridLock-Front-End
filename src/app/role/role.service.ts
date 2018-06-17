@@ -20,11 +20,19 @@ export class RoleService {
   }
 
   createRole(role: Role): Observable<any> {
-    return this.http.post(RoleService.API, JSON.stringify(role));
+    return this.http.post(RoleService.API, JSON.stringify(role), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateRole(id: string, role: Role): Observable<any> {
-    return this.http.put(RoleService.API + "id/" + id, JSON.stringify(role));
+    return this.http.put(RoleService.API + "id/" + id, JSON.stringify(role), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteRole(id: string): Observable<any> {

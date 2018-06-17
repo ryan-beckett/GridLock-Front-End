@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ServiceContract} from "./service-contract";
+import {ServiceContractService} from "./service-contract.service";
 
 declare var $: any;
 
@@ -12,25 +13,34 @@ export class ServiceContractComponent implements OnInit {
 
   @Input() serviceContract: ServiceContract;
 
-  constructor() {
+  constructor(private serviceContractService: ServiceContractService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#serviceContractFieldset").prop('disabled', false);
-    $("#serviceContractSaveBtn").prop("hidden", false);
+    $("#serviceContractUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#serviceContractFieldset").prop('disabled', true);
-    $("#serviceContractEditHref").prop("hidden", true);
-    $("#serviceContractSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#serviceContractUpdateBtn").prop("hidden", true);
+    this.serviceContractService.updateServiceContract(this.serviceContract.id + "", this.serviceContract)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 
 }

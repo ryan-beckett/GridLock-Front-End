@@ -20,11 +20,19 @@ export class UserProfileService {
   }
 
   createUserProfile(userProfile: UserProfile): Observable<any> {
-    return this.http.post(UserProfileService.API, JSON.stringify(userProfile));
+    return this.http.post(UserProfileService.API, JSON.stringify(userProfile), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateUserProfile(id: string, userProfile: UserProfile): Observable<any> {
-    return this.http.put(UserProfileService.API + "id/" + id, JSON.stringify(userProfile));
+    return this.http.put(UserProfileService.API + "id/" + id, JSON.stringify(userProfile), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteUserProfile(id: string): Observable<any> {

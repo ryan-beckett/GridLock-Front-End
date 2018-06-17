@@ -1,5 +1,6 @@
 import {Contact} from "./contact";
 import {Component, Input, OnInit} from "@angular/core";
+import {ContactService} from "./contact.service";
 
 declare var $: any;
 
@@ -12,25 +13,34 @@ export class ContactComponent implements OnInit {
 
   @Input() contact: Contact;
 
-  constructor() {
+  constructor(private contactService: ContactService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#contactFieldset").prop('disabled', false);
-    $("#contactSaveBtn").prop("hidden", false);
+    $("#contactUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#contactFieldset").prop('disabled', true);
-    $("#contactEditHref").prop("hidden", true);
-    $("#contactSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#contactUpdateBtn").prop("hidden", true);
+    this.contactService.updateContact(this.contact.id + "", this.contact)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 
 }

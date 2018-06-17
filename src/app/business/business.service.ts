@@ -20,11 +20,19 @@ export class BusinessService {
   }
 
   createBusiness(business: Business): Observable<any> {
-    return this.http.post(BusinessService.API, JSON.stringify(business));
+    return this.http.post(BusinessService.API, JSON.stringify(business), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateBusiness(id: string, business: Business): Observable<any> {
-    return this.http.put(BusinessService.API + "id/" + id, JSON.stringify(business));
+    return this.http.put(BusinessService.API + "id/" + id, JSON.stringify(business), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteBusiness(id: string): Observable<any> {

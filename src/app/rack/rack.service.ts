@@ -20,11 +20,19 @@ export class RackService {
   }
 
   createRack(rack: Rack): Observable<any> {
-    return this.http.post(RackService.API, JSON.stringify(rack));
+    return this.http.post(RackService.API, JSON.stringify(rack), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateRack(id: string, rack: Rack): Observable<any> {
-    return this.http.put(RackService.API + "id/" + id, JSON.stringify(rack));
+    return this.http.put(RackService.API + "id/" + id, JSON.stringify(rack), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteRack(id: string): Observable<any> {

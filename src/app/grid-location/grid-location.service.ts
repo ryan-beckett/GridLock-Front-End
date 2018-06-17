@@ -20,11 +20,19 @@ export class GridLocationService {
   }
 
   createGridLocation(gridLocation: GridLocation): Observable<any> {
-    return this.http.post(GridLocationService.API, JSON.stringify(gridLocation));
+    return this.http.post(GridLocationService.API, JSON.stringify(gridLocation), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateGridLocation(id: string, gridLocation: GridLocation): Observable<any> {
-    return this.http.put(GridLocationService.API + "id/" + id, JSON.stringify(gridLocation));
+    return this.http.put(GridLocationService.API + "id/" + id, JSON.stringify(gridLocation), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteGridLocation(id: string): Observable<any> {

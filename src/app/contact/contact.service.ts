@@ -21,11 +21,19 @@ export class ContactService {
   }
 
   createContact(contact: Contact): Observable<any> {
-    return this.http.post(ContactService.API, JSON.stringify(contact));
+    return this.http.post(ContactService.API, JSON.stringify(contact), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateContact(id: string, contact: Contact): Observable<any> {
-    return this.http.put(ContactService.API + "id/" + id, JSON.stringify(contact));
+    return this.http.put(ContactService.API + "id/" + id, JSON.stringify(contact), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteContact(id: string): Observable<any> {

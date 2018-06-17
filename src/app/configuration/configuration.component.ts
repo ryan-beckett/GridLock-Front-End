@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Configuration} from "./configuration";
+import {ConfigurationService} from "./configuration.service";
 
 declare var $: any;
 
@@ -12,25 +13,34 @@ export class ConfigurationComponent implements OnInit {
 
   @Input() configuration: Configuration;
 
-  constructor() {
+  constructor(private configurationService: ConfigurationService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#configurationFieldset").prop('disabled', false);
-    $("#configurationSaveBtn").prop("hidden", false);
+    $("#configurationUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#configurationFieldset").prop('disabled', true);
-    $("#configurationEditHref").prop("hidden", true);
-    $("#configurationSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#configurationUpdateBtn").prop("hidden", true);
+    this.configurationService.updateConfiguration(this.configuration.id + "", this.configuration)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 
 }

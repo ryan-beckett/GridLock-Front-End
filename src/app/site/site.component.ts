@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Site} from "./site";
+import {SiteService} from "./site.service";
 
 declare var $: any;
 
@@ -12,25 +13,34 @@ export class SiteComponent implements OnInit {
 
   @Input() site: Site;
 
-  constructor() {
+  constructor(private siteService: SiteService) {
   }
 
   ngOnInit() {
   }
 
-  edit(event) {
+  edit() {
     $("#siteFieldset").prop('disabled', false);
-    $("#siteSaveBtn").prop("hidden", false);
+    $("#siteUpdateBtn").prop("hidden", false);
 		return false;
   }
 
-  save() {
+  update() {
     $("#siteFieldset").prop('disabled', true);
-    $("#siteEditHref").prop("hidden", true);
-    $("#siteSaveBtn").prop("hidden", true);
-    //Update logic here
-    $("#statusMessage").text("Update success!");
-		$("#statusMessageDiv").prop("hidden", false);
+    $("#siteUpdateBtn").prop("hidden", true);
+    this.siteService.updateSite(this.site.id + "", this.site)
+      .subscribe(resp => {
+          $("#statusMessage").removeClass("alert-danger");
+          $("#statusMessage").addClass("alert-success");
+          $("#statusMessage").text("Update success!");
+          $("#statusMessageDiv").prop("hidden", false);
+        },
+        error => {
+          $("#statusMessage").removeClass("alert-success");
+          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessage").text("Update failed!");
+          $("#statusMessageDiv").prop("hidden", false);
+        });
   }
 
 }

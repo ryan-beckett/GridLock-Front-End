@@ -20,11 +20,19 @@ export class PortService {
   }
 
   createPort(port: Port): Observable<any> {
-    return this.http.post(PortService.API, JSON.stringify(port));
+    return this.http.post(PortService.API, JSON.stringify(port), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updatePort(id: string, port: Port): Observable<any> {
-    return this.http.put(PortService.API + "id/" + id, JSON.stringify(port));
+    return this.http.put(PortService.API + "id/" + id, JSON.stringify(port), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deletePort(id: string): Observable<any> {

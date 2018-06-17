@@ -20,11 +20,19 @@ export class ServerDeviceService {
   }
 
   createServerDevice(serverDevice: ServerDevice): Observable<any> {
-    return this.http.post(ServerDeviceService.API, JSON.stringify(serverDevice));
+    return this.http.post(ServerDeviceService.API, JSON.stringify(serverDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateServerDevice(id: string, serverDevice: ServerDevice): Observable<any> {
-    return this.http.put(ServerDeviceService.API + "id/" + id, JSON.stringify(serverDevice));
+    return this.http.put(ServerDeviceService.API + "id/" + id, JSON.stringify(serverDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteServerDevice(id: string): Observable<any> {

@@ -20,11 +20,19 @@ export class UserService {
   }
 
   createUser(user: User): Observable<any> {
-    return this.http.post(UserService.API, JSON.stringify(user));
+    return this.http.post(UserService.API, JSON.stringify(user), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateUser(id: string, user: User): Observable<any> {
-    return this.http.put(UserService.API + "id/" + id, JSON.stringify(user));
+    return this.http.put(UserService.API + "id/" + id, JSON.stringify(user), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteUser(id: string): Observable<any> {

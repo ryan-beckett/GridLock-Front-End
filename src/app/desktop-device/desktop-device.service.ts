@@ -20,11 +20,19 @@ export class DesktopDeviceService {
   }
 
   createDesktopDevice(desktopDevice: DesktopDevice): Observable<any> {
-    return this.http.post(DesktopDeviceService.API, JSON.stringify(desktopDevice));
+    return this.http.post(DesktopDeviceService.API, JSON.stringify(desktopDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateDesktopDevice(id: string, desktopDevice: DesktopDevice): Observable<any> {
-    return this.http.put(DesktopDeviceService.API + "id/" + id, JSON.stringify(desktopDevice));
+    return this.http.put(DesktopDeviceService.API + "id/" + id, JSON.stringify(desktopDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteDesktopDevice(id: string): Observable<any> {

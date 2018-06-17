@@ -20,11 +20,19 @@ export class PatchPanelService {
   }
 
   createPatchPanel(patchPanel: PatchPanel): Observable<any> {
-    return this.http.post(PatchPanelService.API, JSON.stringify(patchPanel));
+    return this.http.post(PatchPanelService.API, JSON.stringify(patchPanel), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updatePatchPanel(id: string, patchPanel: PatchPanel): Observable<any> {
-    return this.http.put(PatchPanelService.API + "id/" + id, JSON.stringify(patchPanel));
+    return this.http.put(PatchPanelService.API + "id/" + id, JSON.stringify(patchPanel), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deletePatchPanel(id: string): Observable<any> {

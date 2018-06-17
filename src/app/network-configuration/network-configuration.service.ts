@@ -20,11 +20,19 @@ export class NetworkConfigurationService {
   }
 
   createNetworkConfiguration(networkConfiguration: NetworkConfiguration): Observable<any> {
-    return this.http.post(NetworkConfigurationService.API, JSON.stringify(networkConfiguration));
+    return this.http.post(NetworkConfigurationService.API, JSON.stringify(networkConfiguration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateNetworkConfiguration(id: string, networkConfiguration: NetworkConfiguration): Observable<any> {
-    return this.http.put(NetworkConfigurationService.API + "id/" + id, JSON.stringify(networkConfiguration));
+    return this.http.put(NetworkConfigurationService.API + "id/" + id, JSON.stringify(networkConfiguration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteNetworkConfiguration(id: string): Observable<any> {

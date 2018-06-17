@@ -20,11 +20,19 @@ export class OSConfigurationService {
   }
 
   createOSConfiguration(osConfiguration: OSConfiguration): Observable<any> {
-    return this.http.post(OSConfigurationService.API, JSON.stringify(osConfiguration));
+    return this.http.post(OSConfigurationService.API, JSON.stringify(osConfiguration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateOSConfiguration(id: string, osConfiguration: OSConfiguration): Observable<any> {
-    return this.http.put(OSConfigurationService.API + "id/" + id, JSON.stringify(osConfiguration));
+    return this.http.put(OSConfigurationService.API + "id/" + id, JSON.stringify(osConfiguration), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteOSConfiguration(id: string): Observable<any> {

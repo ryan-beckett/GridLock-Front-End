@@ -20,11 +20,19 @@ export class ConfigurableDeviceService {
   }
 
   createConfigurableDevice(configurableDevice: ConfigurableDevice): Observable<any> {
-    return this.http.post(ConfigurableDeviceService.API, JSON.stringify(configurableDevice));
+    return this.http.post(ConfigurableDeviceService.API, JSON.stringify(configurableDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateConfigurableDevice(id: string, configurableDevice: ConfigurableDevice): Observable<any> {
-    return this.http.put(ConfigurableDeviceService.API + "id/" + id, JSON.stringify(configurableDevice));
+    return this.http.put(ConfigurableDeviceService.API + "id/" + id, JSON.stringify(configurableDevice), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteConfigurableDevice(id: string): Observable<any> {

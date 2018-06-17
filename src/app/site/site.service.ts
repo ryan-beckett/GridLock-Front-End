@@ -20,11 +20,19 @@ export class SiteService {
   }
 
   createSite(site: Site): Observable<any> {
-    return this.http.post(SiteService.API, JSON.stringify(site));
+    return this.http.post(SiteService.API, JSON.stringify(site), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   updateSite(id: string, site: Site): Observable<any> {
-    return this.http.put(SiteService.API + "id/" + id, JSON.stringify(site));
+    return this.http.put(SiteService.API + "id/" + id, JSON.stringify(site), {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   deleteSite(id: string): Observable<any> {
