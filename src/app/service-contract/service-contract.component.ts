@@ -30,14 +30,16 @@ export class ServiceContractComponent implements OnInit {
     $("#serviceContractUpdateBtn").prop("hidden", true);
     this.serviceContractService.updateServiceContract(this.serviceContract.id + "", this.serviceContract)
       .subscribe(resp => {
-          $("#statusMessage").removeClass("alert-danger");
-          $("#statusMessage").addClass("alert-success");
+          $("#statusMessageDiv").prop("hidden", true);
+          $("#statusMessageDiv").removeClass("alert-danger");
+          $("#statusMessageDiv").addClass("alert-success");
           $("#statusMessage").text("Update success!");
           $("#statusMessageDiv").prop("hidden", false);
         },
         error => {
-          $("#statusMessage").removeClass("alert-success");
-          $("#statusMessage").addClass("alert-danger");
+          $("#statusMessageDiv").prop("hidden", true);
+          $("#statusMessageDiv").removeClass("alert-success");
+          $("#statusMessageDiv").addClass("alert-danger");
           $("#statusMessage").text("Update failed!");
           $("#statusMessageDiv").prop("hidden", false);
         });
