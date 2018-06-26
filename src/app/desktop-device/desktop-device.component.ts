@@ -32,8 +32,10 @@ export class DesktopDeviceComponent implements OnInit {
 
   enableEditing() : void {
     $("fieldset:disabled").each(function() {
-      $(this).find("a:hidden").removeAttr("hidden");
+      $(this).removeAttr("disabled");
+      //$(this).find("a:hidden").removeAttr("hidden");
     });
+    $("#desktopDeviceUpdateBtn").removeAttr("hidden");
   }
 
 }

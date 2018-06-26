@@ -1,29 +1,31 @@
-<form>
-  <fieldset id="businessFieldset" [disabled]="true">
-    <div class="row">
-      <div>
-        <h5>Business</h5>
+<div class="container-fluid">
+  <form>
+    <fieldset id="businessFieldset" [disabled]="true">
+      <div class="row">
+        <div>
+          <h5>Business</h5>
+        </div>
+        <div>
+          &nbsp;&nbsp;<a id="businessEditHref" href="" (click)="edit()" hidden>(Edit)</a>
+        </div>
+        <div>
+          &nbsp;&nbsp;<button hidden id="businessUpdateBtn" type="button" class="btn btn-primary btn-sm"
+                              (click)="update()">Update
+        </button>
+        </div>
       </div>
-      <div>
-        &nbsp;&nbsp;<a id="businessEditHref" href="" (click)="edit()" hidden>(Edit)</a>
-      </div>
-      <div>
-        &nbsp;&nbsp;<button hidden id="businessUpdateBtn" type="button" class="btn btn-primary btn-sm"
-                            (click)="update()">Update
-      </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="form-group row">
-          <div class="col-3">
-            <label>Name</label>
-            <input id="businessName" name="businessName" class="form-control" type="text" [(ngModel)]="business.name">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group row">
+            <div class="col-3">
+              <label>Name</label>
+              <input id="businessName" name="businessName" class="form-control" type="text" [(ngModel)]="business.name">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </fieldset>
-</form>
+    </fieldset>
+  </form>
+</div>
 <app-location [location]="business.location"></app-location>
 <app-contact [contact]="business.contact"></app-contact>

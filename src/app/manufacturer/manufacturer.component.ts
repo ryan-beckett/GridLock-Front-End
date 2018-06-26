@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Manufacturer} from "./manufacturer";
 import {ManufacturerService} from "./manufacturer.service";
 
@@ -44,5 +44,4 @@ export class ManufacturerComponent implements OnInit {
           $("#statusMessageDiv").prop("hidden", false);
         });
   }
-
 }

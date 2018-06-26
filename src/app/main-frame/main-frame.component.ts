@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {MainFrame} from "./main-frame";
 import {MainFrameService} from "./main-frame.service";
+import {Utils} from "../utils";
 
 declare var $: any;
 
@@ -28,12 +29,6 @@ export class MainFrameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  enableEditing() : void {
-    $("fieldset:disabled").each(function() {
-      $(this).find("a:hidden").removeAttr("hidden");
-    });
   }
 
 }

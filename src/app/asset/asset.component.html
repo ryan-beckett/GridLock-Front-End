@@ -1,83 +1,86 @@
-<form>
-  <fieldset id="assetFieldset" [disabled]="true">
-    <div class="row">
-      <div>
-        <h5>Asset Details</h5>
-      </div>
-      <div>
-        &nbsp;&nbsp;<a id="assetEditHref" href="" (click)="edit()" hidden>(Edit)</a>
-      </div>
-      <div>
-        &nbsp;&nbsp;<button hidden id="assetUpdateBtn" type="button" class="btn btn-primary btn-sm" (click)="update()">
-        Update
-      </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-10">
-        <div class="form-group row">
-          <div class="col-3">
-            <label>Asset Id</label>
-            <input id="assetId" name="assetId" class="form-control" type="text" [(ngModel)]="asset.id">
-          </div>
-          <div class="col-3">
-            <label>Name</label>
-            <input id="assetName" name="assetName" class="form-control" type="text" [(ngModel)]="asset.name">
-          </div>
-          <div class="col-3">
-            <label>Type</label>
-            <select [(ngModel)]="asset.type" class="form-control" id="assetType" name="assetType">
-              <option selected [ngValue]="asset.type">{{asset.type}}</option>
-              <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t">{{t}}</option>
-            </select>
-          </div>
-          <div class="col-3">
-            <label>Status</label>
-            <select class="col-3" [(ngModel)]="asset.status" class="form-control" id="assetStatus"
-                    name="assetStatus">
-              <option selected [ngValue]="asset.status">{{asset.status}}</option>
-              <option *ngFor="let s of asset.ASSET_STATUS" [ngValue]="s" [selected]="s === asset.status">{{s}}</option>
-            </select>
-          </div>
+<div class="container-fluid">
+  <form>
+    <fieldset id="assetFieldset" [disabled]="true">
+      <div class="row">
+        <div>
+          <h5>Asset Details</h5>
         </div>
-        <div class="form-group row">
-          <div class="col-3">
-            <label>Serial</label>
-            <input id="assetSerial" name="assetSerial" class="form-control" type="text"
-                   [(ngModel)]="asset.serial">
-          </div>
-          <div class="col-3">
-            <label>Part #</label>
-            <input id="assetPartNumber" name="assetPartNumber" class="form-control" type="text"
-                   [(ngModel)]="asset.partNumber">
-          </div>
-          <div class="col-3">
-            <label>Purchase Order #</label>
-            <input id="assetPurchaseOrderNumber" name="assetPurchaseOrderNumber" class="form-control" type="text"
-                   [(ngModel)]="asset.purchaseOrderNumber">
-          </div>
-          <div class="col-3">
-            <label>Cost ($)</label>
-            <input id="assetCost" name="assetCost" class="form-control" type="text" [(ngModel)]="asset.cost">
-          </div>
+        <div>
+          &nbsp;&nbsp;<a id="assetEditHref" href="" (click)="edit()" hidden>(Edit)</a>
         </div>
-        <div class="form-group row">
-          <div class="col-3">
-            <label>Model</label>
-            <input id="assetModel" name="assetModel" class="form-control" type="text"
-                   [(ngModel)]="asset.model">
-          </div>
-          <div class="col-6">
-            <label>Description</label>
-            <textarea id="assetDescription" name="assetDescription" class="form-control" type="text"
-                      [(ngModel)]="asset.description"></textarea>
-          </div>
+        <div>
+          &nbsp;&nbsp;<button hidden id="assetUpdateBtn" type="button" class="btn btn-primary btn-sm"
+                              (click)="update()">
+          Update
+        </button>
         </div>
       </div>
-      <div class="col-2">
-        <img id="assetImageURL" name="assetImageURL" [src]="asset.imageURL" class="img-fluid" alt="Device Image">
+      <div class="row">
+        <div class="col-10">
+          <div class="form-group row">
+            <div class="col-3">
+              <label>Asset Id</label>
+              <input id="assetId" name="assetId" class="form-control" type="text" [(ngModel)]="asset.id">
+            </div>
+            <div class="col-3">
+              <label>Name</label>
+              <input id="assetName" name="assetName" class="form-control" type="text" [(ngModel)]="asset.name">
+            </div>
+            <div class="col-3">
+              <label>Type</label>
+              <select [(ngModel)]="asset.type" class="form-control" id="assetType" name="assetType">
+                <option selected [ngValue]="asset.type">{{asset.type}}</option>
+                <option *ngFor="let t of asset.ASSET_TYPES" [ngValue]="t">{{t}}</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <label>Status</label>
+              <select class="col-3" [(ngModel)]="asset.status" class="form-control" id="assetStatus"
+                      name="assetStatus">
+                <option selected [ngValue]="asset.status">{{asset.status}}</option>
+                <option *ngFor="let s of asset.ASSET_STATUS" [ngValue]="s" [selected]="s === asset.status">{{s}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-3">
+              <label>Serial</label>
+              <input id="assetSerial" name="assetSerial" class="form-control" type="text"
+                     [(ngModel)]="asset.serial">
+            </div>
+            <div class="col-3">
+              <label>Part #</label>
+              <input id="assetPartNumber" name="assetPartNumber" class="form-control" type="text"
+                     [(ngModel)]="asset.partNumber">
+            </div>
+            <div class="col-3">
+              <label>Purchase Order #</label>
+              <input id="assetPurchaseOrderNumber" name="assetPurchaseOrderNumber" class="form-control" type="text"
+                     [(ngModel)]="asset.purchaseOrderNumber">
+            </div>
+            <div class="col-3">
+              <label>Cost ($)</label>
+              <input id="assetCost" name="assetCost" class="form-control" type="text" [(ngModel)]="asset.cost">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-3">
+              <label>Model</label>
+              <input id="assetModel" name="assetModel" class="form-control" type="text"
+                     [(ngModel)]="asset.model">
+            </div>
+            <div class="col-6">
+              <label>Description</label>
+              <textarea id="assetDescription" name="assetDescription" class="form-control" type="text"
+                        [(ngModel)]="asset.description"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <img id="assetImageURL" name="assetImageURL" [src]="asset.imageURL" class="img-fluid" alt="Device Image">
+        </div>
       </div>
-    </div>
-  </fieldset>
-</form>
-
+    </fieldset>
+  </form>
+</div>

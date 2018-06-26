@@ -72,6 +72,7 @@ import {ContactComponent} from "./contact/contact.component";
 import {LocationComponent} from "./location/location.component";
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardService} from "./dashboard/dashboard.service";
+import {UtilPanelComponent} from "./ui-components/asset-view/util-panel/util-panel.component";
 
 const appRoutes: Routes = [
   {
@@ -156,6 +157,7 @@ const appRoutes: Routes = [
     ContactComponent,
     LocationComponent,
     DashboardComponent,
+    UtilPanelComponent,
   ],
   imports: [
     BrowserModule,

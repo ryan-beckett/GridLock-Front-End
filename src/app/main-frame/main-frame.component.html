@@ -3,6 +3,7 @@
     <a href="/asset-search">Back to Asset Search</a>
   </div>
   <br/>
+  <app-util-panel></app-util-panel>
   <div class="row">
     <div class="">
       <ul class="nav nav-tabs" role="tablist">
@@ -23,6 +24,10 @@
              aria-selected="false">Grid</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" id="rackTab" href="#rack" aria-controls="rack" role="tab" data-toggle="tab"
+             aria-selected="false">Rack</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" id="ownerTab" href="#owner" aria-controls="owner" role="tab" data-toggle="tab"
              aria-selected="false">Owner</a>
         </li>
@@ -40,18 +45,6 @@
           <a class="nav-link" id="osConfigurationTab" href="#osConfiguration" aria-controls="osConfiguration"
              role="tab" data-toggle="tab" aria-selected="false">OS
             Configuration</a>
-        </li>
-        <li class="nav-item">
-          <div class="dropdown">
-            &nbsp;&nbsp;
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-cog" aria-hidden="true"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" (click)="enableEditing()">Edit</a>
-            </div>
-          </div>
         </li>
       </ul>
       <div class="tab-content" id="tabContent">
